@@ -6,22 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping List</title>
 
-  <link rel="stylesheet" href="../sass/_shopping-list.scss" />
+  <link rel="stylesheet" href="./sass/index.scss" />
   <include src="./basic-links.html"></include>
 </head>
 
 <body>
   <include src="./partials/header-menu.html"></include>
 
-  <main>
-    <include src="./partials/shopping-list.html"></include>
-  </main>
+  <section class="support-and-shopping__wrapper">
+    <include src="./partials/support.html"></include>
+    
+    <h2>Shopping List</h2>
+    <ul class="shopping-list"></ul>
+  </section>
 
-  <include src="./partials/card-modal.html"></include>
-
-  <script type="module" src="./js/home.js"></script>
-  <script type="module" src="./js/shopping-list.js"></script>
-
+  <script type="module" src="./js/menu-header/menu-header.js"></script>
+  <script type="module" src="../js/shopping-list/shopping-list.js"></script>
 </body>
 
 </html>
