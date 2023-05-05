@@ -12,10 +12,10 @@ const renderBooksList = async () => {
     const books = category.books.map(book => {
       return `
       <div class="book-card" data-book-id="${book._id}">
-          <img src="${book.book_image}" alt="${book.title}">
+          <img src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
-            <h3>${book.title}</h3>
-            <p>${book.author}</p>
+            <h3 class="book-title">${book.title}</h3>
+            <p class="book-autor">${book.author}</p>
           </div>
         </div>
       `;
