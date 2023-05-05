@@ -1,8 +1,8 @@
 body {
   font-family: var(--font-main);
   font-weight: 400;
-  font-size: 12px;
-  color: var(--color-text);
+  font-size: 16px;
+  color: var(--color-basic-text);
   margin: 0 auto;
 }
 
@@ -32,6 +32,7 @@ img {
 }
 
 a {
+  color: currentColor;
   text-decoration: none;
 }
 
