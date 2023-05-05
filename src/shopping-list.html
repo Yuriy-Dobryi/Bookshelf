@@ -7,21 +7,19 @@
   <title>Shopping List</title>
 
   <link rel="stylesheet" href="./sass/index.scss" />
-  <include src="./basic-links.html"></include>
 </head>
 
 <body>
-  <include src="./menu-header.html"></include>
+  <include src="./partials/menu-header.html"></include>
 
   <section class="support-and-shopping__wrapper">
-    <include src="./support.html"></include>
+    <include src="./partials/support.html"></include>
     
     <h2>Shopping List</h2>
     <ul class="shopping-list"></ul>
   </section>
 
-  <script type="module" src="../js/menu-header/menu-header.js"></script>
-  <script type="module" src="../js/shopping-list/shopping-list.js"></script>
+  <script type="module" src="./shopping-list.js"></script>
 </body>
 
 </html>
