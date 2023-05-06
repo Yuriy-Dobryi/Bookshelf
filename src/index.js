@@ -3,3 +3,4 @@ import './js/home/support.js';
 import './js/home/modal-card';
 import './js/home/render-books-list.js';
 import './js/menu-header/switcher.js';
+import './js/home/render-categories-list.js';
