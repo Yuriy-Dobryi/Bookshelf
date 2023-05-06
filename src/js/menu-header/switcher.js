@@ -1,25 +1,21 @@
- // function to set a given theme/color-scheme
- const setTheme = (themeName) => {
-    localStorage.setItem('theme', themeName);
-    document.documentElement.className = themeName;
+const main = document.querySelector('main');
+
+// Функція для зміни фону main
+const changeMainBackground = (color) => {
+    main.style.backgroundColor = color;
 }
 
-// function to toggle between light and dark theme
-const toggleTheme = () => {
-    if (localStorage.getItem('theme') === 'theme-dark') {
-        setTheme('theme-light');
-    } else {
-        setTheme('theme-dark');
+// Функція для зберігання фону у localStorage
+const saveSettingsToLocalStorage = (color) => {
+  localStorage.setItem('mainBackgroundColor', color);
+}
+ // Функція для відображення відповідного фону при завантаженні сторінки
+function loadSettingsFromLocalStorage() {
+    const color = localStorage.getItem('mainBackgroundColor');
+    if (color) {
+      changeMainBackground(color);
     }
 }
+// Виклик функції для завантаження збережених налаштувань
+loadSettingsFromLocalStorage();
 
-// Immediately invoked function to set the theme on initial load
-(function () {
-    if (localStorage.getItem('theme') === 'theme-dark') {
-        setTheme('theme-dark');
-        document.getElementById('slider').checked = false;
-    } else {
-        setTheme('theme-light');
-      document.getElementById('slider').checked = true;
-}
-})();
