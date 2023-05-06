@@ -1,5 +1,5 @@
-// function to set a given theme/color-scheme
-const setTheme = (themeName) => {
+ // function to set a given theme/color-scheme
+ const setTheme = (themeName) => {
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 }
@@ -21,5 +21,5 @@ const toggleTheme = () => {
     } else {
         setTheme('theme-light');
       document.getElementById('slider').checked = true;
-    }
+}
 })();
