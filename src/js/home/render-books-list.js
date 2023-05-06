@@ -1,7 +1,7 @@
 import FetchCategoriesAll from './service-categories-all';
+import { requestCard } from './modal-card';
 
 const fetchApiCategories = new FetchCategoriesAll();
-
 const booksList = document.querySelector('.books-list')
 
 const renderBooksList = async () => {
@@ -10,8 +10,8 @@ const renderBooksList = async () => {
 
   categoriesTop.forEach(category => {
     const books = category.books.map(book => {
-      return `
-      <div class="book-card" data-book-id="${book._id}">
+      return `  
+        <div class="book-card" data-book-id="${book._id}">
           <img src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
             <h3 class="book-title">${book.title}</h3>
@@ -32,10 +32,12 @@ const renderBooksList = async () => {
 
     booksList.insertAdjacentHTML('beforeend', categorySection);
   });
+
+
   booksList.addEventListener('click', event => {
     const bookCard = event.target.closest('.book-card');
     const bookId = bookCard.dataset.bookId;
-    console.log(bookId);
+    requestCard(bookId);
   });
 };
 
