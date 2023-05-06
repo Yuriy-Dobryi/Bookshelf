@@ -18,11 +18,4 @@ function loadSettingsFromLocalStorage() {
 }
 // Виклик функції для завантаження збережених налаштувань
 loadSettingsFromLocalStorage();
- 
- 
- 
- 
- 
- 
- 
- 
+
