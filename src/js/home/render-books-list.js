@@ -1,5 +1,5 @@
 import FetchCategoriesAll from './service-categories-all';
-// import { requestCard } from './modal-card';
+import { requestCard } from './modal-card';
 
 const fetchApiCategories = new FetchCategoriesAll();
 
@@ -11,8 +11,8 @@ const renderBooksList = async () => {
 
   categoriesTop.forEach(category => {
     const books = category.books.map(book => {
-      return `
-      <div class="book-card" data-book-id="${book._id}">
+      return `  
+        <div class="book-card" data-book-id="${book._id}">
           <img src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
             <h3 class="book-title">${book.title}</h3>
@@ -20,7 +20,8 @@ const renderBooksList = async () => {
           </div>
         </div>
       `;
-    }).join('');
+      })
+      .join('');
 
     const categorySection = `
     <section class="category-section">
@@ -32,6 +33,7 @@ const renderBooksList = async () => {
     </section>`;
 
     booksList.insertAdjacentHTML('beforeend', categorySection);
+
   });  
   
   booksList.addEventListener('click', event => {
@@ -42,14 +44,19 @@ const renderBooksList = async () => {
       // requestCard(bookId);
     }
   });
-  
+ 
   booksList.addEventListener('click', async (event) => {
     if (event.target.classList.contains('category-books-button')) {
       const category = event.target.dataset.categoryBooks;
       console.log(category);
-
       renderBooksListCategori(category);
     }
+  });
+
+  booksList.addEventListener('click', event => {
+    const bookCard = event.target.closest('.book-card');
+    const bookId = bookCard.dataset.bookId;
+    requestCard(bookId);
   });
 };
 
@@ -84,15 +91,3 @@ const renderBooksListCategori = async (category) => {
 
   window.scrollTo(0, 0);
 };
-// fetchApiCategories.getCategoriesList().then(res => console.log(res));
-
-// fetchApiCategories.getCategoriesTop().then(res => console.log(res));
-
-// fetchApiCategories
-//   .getCategoriesSelected('Business Books')
-//   .then(res => console.log(res));
-
-// fetchApiCategories
-//   .getBookId('643282b1e85766588626a087')
-//   .then(res => console.log(res));
-
