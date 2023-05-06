@@ -2,15 +2,16 @@ import FetchCategoriesAll from './service-categories-all';
 
 const fetchApiCategories = new FetchCategoriesAll();
 
-const booksList = document.querySelector('.books-list')
+const booksList = document.querySelector('.books-list');
 
 const renderBooksList = async () => {
   const categoriesTop = await fetchApiCategories.getCategoriesTop();
   booksList.innerHTML = '';
 
   categoriesTop.forEach(category => {
-    const books = category.books.map(book => {
-      return `
+    const books = category.books
+      .map(book => {
+        return `
       <div class="book-card" data-book-id="${book._id}">
           <img src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
@@ -19,7 +20,8 @@ const renderBooksList = async () => {
           </div>
         </div>
       `;
-    }).join('');
+      })
+      .join('');
 
     const categorySection = `
     <section class="category-section">
@@ -40,16 +42,3 @@ const renderBooksList = async () => {
 };
 
 renderBooksList();
-
-// fetchApiCategories.getCategoriesList().then(res => console.log(res));
-
-// fetchApiCategories.getCategoriesTop().then(res => console.log(res));
-
-// fetchApiCategories
-//   .getCategoriesSelected('Business Books')
-//   .then(res => console.log(res));
-
-// fetchApiCategories
-//   .getBookId('643282b1e85766588626a087')
-//   .then(res => console.log(res));
-
