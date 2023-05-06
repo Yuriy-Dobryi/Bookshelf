@@ -1,10 +1,10 @@
 // Список категорій
-
 .categories-list {
   display: flex;
   flex-direction: column;
   row-gap: 24px;
 
+  font-family: var(--font-logo);
   font-size: 16px;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -16,6 +16,12 @@
   overflow-x: hidden;
 
   border: blue 1px solid;
+}
+
+.current-catigory {
+  font-weight: 700;
+  color: var(--color-brand);
+  text-transform: uppercase;
 }
 
 .categories-list::-webkit-scrollbar {
