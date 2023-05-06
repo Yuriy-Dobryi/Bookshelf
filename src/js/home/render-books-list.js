@@ -38,8 +38,8 @@ const renderBooksList = async () => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
       const bookId = bookCard.dataset.bookId;
-      // requestCard(bookId);
       console.log(bookId);
+      // requestCard(bookId);
     }
   });
   
@@ -84,8 +84,6 @@ const renderBooksListCategori = async (category) => {
 
   window.scrollTo(0, 0);
 };
-
-
 // fetchApiCategories.getCategoriesList().then(res => console.log(res));
 
 // fetchApiCategories.getCategoriesTop().then(res => console.log(res));
