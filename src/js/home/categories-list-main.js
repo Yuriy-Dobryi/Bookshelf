@@ -9,7 +9,7 @@ function onItemCategoryClick(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
-  const currentItem = document.querySelector('.current-catigory');
-  currentItem.classList.remove('current-catigory');
-  e.target.classList.add('current-catigory');
+  const currentItem = document.querySelector('.current-category');
+  currentItem.classList.remove('current-category');
+  e.target.classList.add('current-category');
 }
