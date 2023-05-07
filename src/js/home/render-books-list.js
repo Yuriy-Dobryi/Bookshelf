@@ -1,17 +1,29 @@
 import FetchCategoriesAll from './service-categories-all';
 import { requestCard } from './modal-card';
+import { checkCurrentCategory } from './render-categories-list';
+
+const viewportWidth = window.innerWidth;
+let booksPerCategory = 5;
+
+if (viewportWidth < 1440 && viewportWidth >= 768) {
+  booksPerCategory = 3;
+} else if (viewportWidth < 768) {
+  booksPerCategory = 1;
+}
 
 const fetchApiCategories = new FetchCategoriesAll();
 
-const booksList = document.querySelector('.books-list')
+const booksList = document.querySelector('.books-list');
 
-const renderBooksList = async () => {
+export const renderBooksList = async () => {
   const categoriesTop = await fetchApiCategories.getCategoriesTop();
   booksList.innerHTML = '';
 
   categoriesTop.forEach(category => {
-    const books = category.books.map(book => {
-      return `  
+    const books = category.books
+      .slice(0, booksPerCategory)
+      .map(book => {
+        return `  
         <div class="book-card" data-book-id="${book._id}">
           <img src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
@@ -25,6 +37,7 @@ const renderBooksList = async () => {
 
     const categorySection = `
     <section class="category-section">
+      <h1  class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>
       <h2>${category.list_name}</h2>
       <div class="books-container">
         ${books}
@@ -33,9 +46,8 @@ const renderBooksList = async () => {
     </section>`;
 
     booksList.insertAdjacentHTML('beforeend', categorySection);
+  });
 
-  });  
-  
   booksList.addEventListener('click', event => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
@@ -44,30 +56,32 @@ const renderBooksList = async () => {
       // requestCard(bookId);
     }
   });
- 
-  booksList.addEventListener('click', async (event) => {
+
+  booksList.addEventListener('click', async event => {
     if (event.target.classList.contains('category-books-button')) {
       const category = event.target.dataset.categoryBooks;
       console.log(category);
       renderBooksListCategori(category);
+      checkCurrentCategory(category);
     }
-  });
-
-  booksList.addEventListener('click', event => {
-    const bookCard = event.target.closest('.book-card');
-    const bookId = bookCard.dataset.bookId;
-    requestCard(bookId);
   });
 };
 
 renderBooksList();
 
-const renderBooksListCategori = async (category) => {
-  const booksListCategori = await fetchApiCategories.getCategoriesSelected(category);
+export const renderBooksListCategori = async category => {
+  const booksListCategori = await fetchApiCategories.getCategoriesSelected(
+    category
+  );
   booksList.innerHTML = '';
 
-  const books = booksListCategori.map(book => {
-    return `
+  const booksTitle = category.split(' ');
+  const booksTitleLast = booksTitle.pop();
+  const booksTitleFirst = booksTitle.join(' ');
+
+  const books = booksListCategori
+    .map(book => {
+      return `
     <div class="book-card" data-book-id="${book._id}">
         <img src="${book.book_image}" alt="${book.title}" class="book-image">
         <div class="book-info">
@@ -76,11 +90,12 @@ const renderBooksListCategori = async (category) => {
         </div>
     </div>
     `;
-  }).join('');
+    })
+    .join('');
 
   const booksSection = `
     <section class="category-section">
-      <h1>${category}</h1>
+      <h1  class="books-list-title">${booksTitleFirst} <span class="span-books-list-title">${booksTitleLast}</span></h1>
       <div class="books-container">
         ${books}
       </div>
