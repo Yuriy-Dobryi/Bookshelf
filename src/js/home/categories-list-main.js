@@ -1,5 +1,3 @@
-// Модуль основних дій Списку категорій
-
 // Логіка 'підсвічування' вибраної категорії (css)
 const categoriesList = document.querySelector('.categories-list');
 
