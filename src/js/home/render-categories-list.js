@@ -26,7 +26,7 @@ const renderCategoriesList = async () => {
   categoriesList.addEventListener('click', onItemClick);
 
   function onItemClick(e) {
-    if (e.target.nodeName !== 'LI') {
+    if (e.target.nodeName !== 'LI' || !e.target.dataset.categoryBooks) {
       return;
     }
     const category = e.target.dataset.categoryBooks;
@@ -46,4 +46,20 @@ function onItemCategoryClick(e) {
   const currentItem = document.querySelector('.current-category');
   currentItem.classList.remove('current-category');
   e.target.classList.add('current-category');
+}
+
+// Функція зміни 'підсвічування' вибраної категорії при натисканні на кнопку See More
+
+export function checkCurrentCategory(category) {
+  const currentItem = document.querySelector('.current-category');
+  currentItem.classList.remove('current-category');
+
+  const checkCategory = document.querySelector(
+    `[data-category-books="${category}"]`
+  );
+
+  checkCategory.classList.add('current-category');
+
+  // const x = checkCategory.getBoundingClientRect().top;
+  // console.log(x);
 }
