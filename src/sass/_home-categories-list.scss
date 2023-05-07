@@ -37,6 +37,14 @@
   cursor: pointer;
 }
 
+body.dark .categories-list {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark .current-category {
+  color: #eac645;
+}
+
 @media screen and (min-width: 375px) {
 }
 
