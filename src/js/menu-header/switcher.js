@@ -1,21 +1,25 @@
 const main = document.querySelector('main');
 
-// Функція для зміни фону main
-const changeMainBackground = (color) => {
-    main.style.backgroundColor = color;
+const body = document.querySelector('body');
+const toggle = document.querySelector('.toggle');
+
+let getMode = localStorage.getItem('mode');
+if( getMode && getMode === 'dark'){
+    body.classList.add('dark');
+    toggle.classList.add("active");
 }
 
-// Функція для зберігання фону у localStorage
-const saveSettingsToLocalStorage = (color) => {
-  localStorage.setItem('mainBackgroundColor', color);
-}
- // Функція для відображення відповідного фону при завантаженні сторінки
-function loadSettingsFromLocalStorage() {
-    const color = localStorage.getItem('mainBackgroundColor');
-    if (color) {
-      changeMainBackground(color);
+toggle.addEventListener('click', () =>{
+    body.classList.toggle('dark');
+    
+    if(!body.classList.contains('dark')) {
+        return localStorage.setItem('mode', 'ligth');
     }
-}
-// Виклик функції для завантаження збережених налаштувань
-loadSettingsFromLocalStorage();
+        localStorage.setItem('mode', 'dark');
+});
+
+toggle.addEventListener('click',() => {
+    return toggle.classList.toggle("active");
+});
+
 
