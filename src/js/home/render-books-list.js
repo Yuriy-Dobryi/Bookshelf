@@ -1,14 +1,15 @@
 import FetchCategoriesAll from './service-categories-all';
 import { requestCard } from './modal-card';
+import { checkCurrentCategory } from './render-categories-list';
 
 const viewportWidth = window.innerWidth;
-  let booksPerCategory = 5;
+let booksPerCategory = 5;
 
-  if (viewportWidth < 1440 && viewportWidth >= 768) {
-    booksPerCategory = 3;
-  } else if (viewportWidth < 768) {
-    booksPerCategory = 1;
-};
+if (viewportWidth < 1440 && viewportWidth >= 768) {
+  booksPerCategory = 3;
+} else if (viewportWidth < 768) {
+  booksPerCategory = 1;
+}
 
 const fetchApiCategories = new FetchCategoriesAll();
 
@@ -19,8 +20,10 @@ export const renderBooksList = async () => {
   booksList.innerHTML = '';
 
   categoriesTop.forEach(category => {
-    const books = category.books.slice(0, booksPerCategory).map(book => {
-      return `  
+    const books = category.books
+      .slice(0, booksPerCategory)
+      .map(book => {
+        return `  
         <div class="book-card" data-book-id="${book._id}">
           <img src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
@@ -43,9 +46,8 @@ export const renderBooksList = async () => {
     </section>`;
 
     booksList.insertAdjacentHTML('beforeend', categorySection);
+  });
 
-  });  
-  
   booksList.addEventListener('click', event => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
@@ -54,28 +56,32 @@ export const renderBooksList = async () => {
       // requestCard(bookId);
     }
   });
- 
-  booksList.addEventListener('click', async (event) => {
+
+  booksList.addEventListener('click', async event => {
     if (event.target.classList.contains('category-books-button')) {
       const category = event.target.dataset.categoryBooks;
       console.log(category);
       renderBooksListCategori(category);
+      checkCurrentCategory(category);
     }
   });
 };
 
 renderBooksList();
 
-export const renderBooksListCategori = async (category) => {
-  const booksListCategori = await fetchApiCategories.getCategoriesSelected(category);
+export const renderBooksListCategori = async category => {
+  const booksListCategori = await fetchApiCategories.getCategoriesSelected(
+    category
+  );
   booksList.innerHTML = '';
 
   const booksTitle = category.split(' ');
   const booksTitleLast = booksTitle.pop();
-  const booksTitleFirst = booksTitle.join(" ");
+  const booksTitleFirst = booksTitle.join(' ');
 
-  const books = booksListCategori.map(book => {
-    return `
+  const books = booksListCategori
+    .map(book => {
+      return `
     <div class="book-card" data-book-id="${book._id}">
         <img src="${book.book_image}" alt="${book.title}" class="book-image">
         <div class="book-info">
@@ -84,7 +90,8 @@ export const renderBooksListCategori = async (category) => {
         </div>
     </div>
     `;
-  }).join('');
+    })
+    .join('');
 
   const booksSection = `
     <section class="category-section">
