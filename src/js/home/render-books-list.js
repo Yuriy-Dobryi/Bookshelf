@@ -1,16 +1,25 @@
 import FetchCategoriesAll from './service-categories-all';
 import { requestCard } from './modal-card';
 
+const viewportWidth = window.innerWidth;
+  let booksPerCategory = 5;
+
+  if (viewportWidth < 1440 && viewportWidth >= 768) {
+    booksPerCategory = 3;
+  } else if (viewportWidth < 768) {
+    booksPerCategory = 1;
+};
+
 const fetchApiCategories = new FetchCategoriesAll();
 
-const booksList = document.querySelector('.books-list')
+const booksList = document.querySelector('.books-list');
 
 export const renderBooksList = async () => {
   const categoriesTop = await fetchApiCategories.getCategoriesTop();
   booksList.innerHTML = '';
 
   categoriesTop.forEach(category => {
-    const books = category.books.map(book => {
+    const books = category.books.slice(0, booksPerCategory).map(book => {
       return `  
         <div class="book-card" data-book-id="${book._id}">
           <img src="${book.book_image}" alt="${book.title}" class="book-image">
@@ -90,4 +99,3 @@ export const renderBooksListCategori = async (category) => {
 
   window.scrollTo(0, 0);
 };
-// import { renderBooksList, renderBooksListCategori } from './render-books-list';
