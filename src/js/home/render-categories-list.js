@@ -57,9 +57,7 @@ export function checkCurrentCategory(category) {
   const checkCategory = document.querySelector(
     `[data-category-books="${category}"]`
   );
-
   checkCategory.classList.add('current-category');
 
-  // const x = checkCategory.getBoundingClientRect().top;
-  // console.log(x);
+  categoriesList.scrollTo(0, checkCategory.offsetTop - 25);
 }
