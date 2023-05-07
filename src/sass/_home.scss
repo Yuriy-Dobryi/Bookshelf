@@ -1,11 +1,8 @@
-// Розміщення елементів сторінки
-
-// .home .container {
-//   display: flex;
-// }
-// .categories-and-support__wrapper {
-//   display: block;
-// }
+:root {
+  --h2-font-color: #b4afaf;
+  --title-font: 'DM Sans';
+  --category-font: 'DM Sans';
+}
 
 // Стилі рендеру карток книг
 
@@ -13,10 +10,28 @@
   position: static;
   margin-top: 50px;
 }
+.books-list-title {
+  margin-bottom: 40px;
+  font-family: var(--title-font);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08;
+}
+.category-section:not(:first-child)h1 {
+  display: none;
+}
 
 .category-section h2 {
-  height: 38px;
-  margin-bottom: 40px;
+  height: 24px;
+  margin-bottom: 18px;
+  font-family: var(--category-font);
+  font-style: normal;
+  font-size: 14px;
+  line-height: 2;
+  text-transform: uppercase;
+  width: 400;
+  color: var(--h2-font-color);
 }
 
 .books-container {
@@ -36,7 +51,7 @@
   height: 18px;
   font-size: 16px;
   font-weight: 700;
-  font-family: 'DM Sans';
+  font-family: var(--category-font);
   font-style: normal;
   line-height: 1.125;
   margin-top: 14px;
@@ -46,6 +61,7 @@
 
 .book-autor {
   height: 14px;
+  font-family: var(--category-font);
   font-size: 12px;
   line-height: 1.17;
   margin-top: 4px;
@@ -60,7 +76,7 @@
   height: 46px;
   width: 124px;
   border-radius: 40px;
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--color-brand);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29;
@@ -108,6 +124,21 @@
     width: 180px;
   }
   .book-list {
-    position: absolute;
+    // position: absolute;
+  }
+}
+// Розміщення елементів сторінки
+
+@media screen and (min-width: 1440px) {
+  .home .container {
+    display: flex;
+    margin-left: 40px;
+  }
+  .category-section {
+    margin-left: 40px;
+    margin-right: 24px;
+  }
+  .category-books-button {
+    margin-top: 32px;
   }
 }
