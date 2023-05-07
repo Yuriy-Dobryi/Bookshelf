@@ -23,9 +23,9 @@ const renderCategoriesList = async () => {
   itemAllCategories.addEventListener('click', renderBooksList);
 
   // Рендер вибраної категорії
-  categoriesList.addEventListener('click', onItemCategoryClick);
+  categoriesList.addEventListener('click', onItemClick);
 
-  function onItemCategoryClick(e) {
+  function onItemClick(e) {
     if (e.target.nodeName !== 'LI') {
       return;
     }
@@ -35,3 +35,15 @@ const renderCategoriesList = async () => {
 };
 
 renderCategoriesList();
+
+// Логіка 'підсвічування' вибраної категорії (css)
+categoriesList.addEventListener('click', onItemCategoryClick);
+
+function onItemCategoryClick(e) {
+  if (e.target.nodeName !== 'LI') {
+    return;
+  }
+  const currentItem = document.querySelector('.current-category');
+  currentItem.classList.remove('current-category');
+  e.target.classList.add('current-category');
+}
