@@ -5,7 +5,7 @@ const fetchApiCategories = new FetchCategoriesAll();
 
 const booksList = document.querySelector('.books-list')
 
-const renderBooksList = async () => {
+export const renderBooksList = async () => {
   const categoriesTop = await fetchApiCategories.getCategoriesTop();
   booksList.innerHTML = '';
 
@@ -52,17 +52,11 @@ const renderBooksList = async () => {
       renderBooksListCategori(category);
     }
   });
-
-  booksList.addEventListener('click', event => {
-    const bookCard = event.target.closest('.book-card');
-    const bookId = bookCard.dataset.bookId;
-    requestCard(bookId);
-  });
 };
 
 renderBooksList();
 
-const renderBooksListCategori = async (category) => {
+export const renderBooksListCategori = async (category) => {
   const booksListCategori = await fetchApiCategories.getCategoriesSelected(category);
   booksList.innerHTML = '';
 
@@ -91,3 +85,4 @@ const renderBooksListCategori = async (category) => {
 
   window.scrollTo(0, 0);
 };
+// import { renderBooksList, renderBooksListCategori } from './render-books-list';
