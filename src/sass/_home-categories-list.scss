@@ -14,8 +14,6 @@
   height: 228px;
   overflow: scroll;
   overflow-x: hidden;
-
-  border: blue 1px solid;
 }
 
 .current-category {
@@ -33,8 +31,20 @@
   border-radius: 12px;
 }
 
+body.dark .categories-list::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.6);
+}
+
 .categories-item {
   cursor: pointer;
+}
+
+body.dark .categories-list {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark .current-category {
+  color: #eac645;
 }
 
 @media screen and (min-width: 375px) {
@@ -45,6 +55,8 @@
     row-gap: 32px;
     width: 337px;
     height: 472px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 }
 
