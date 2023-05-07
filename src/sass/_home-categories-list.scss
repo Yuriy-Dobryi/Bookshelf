@@ -14,8 +14,6 @@
   height: 228px;
   overflow: scroll;
   overflow-x: hidden;
-
-  border: blue 1px solid;
 }
 
 .current-category {
@@ -31,6 +29,10 @@
 .categories-list::-webkit-scrollbar-thumb {
   background: #e0e0e0;
   border-radius: 12px;
+}
+
+body.dark .categories-list::-webkit-scrollbar-thumb {
+  background: rgba(17, 17, 17, 0.6);
 }
 
 .categories-item {
@@ -53,6 +55,8 @@ body.dark .current-category {
     row-gap: 32px;
     width: 337px;
     height: 472px;
+    font-size: 18px;
+    line-height: 1.33;
   }
 }
 
