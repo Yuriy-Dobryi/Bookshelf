@@ -37,7 +37,6 @@ export const renderBooksList = async () => {
 
     const categorySection = `
     <section class="category-section">
-      <h1  class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>
       <h2>${category.list_name}</h2>
       <div class="books-container">
         ${books}
@@ -48,11 +47,13 @@ export const renderBooksList = async () => {
     booksList.insertAdjacentHTML('beforeend', categorySection);
   });
 
+  const mainTitle = `<h1 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>`;
+  booksList.insertAdjacentHTML("afterbegin", mainTitle);
+
   booksList.addEventListener('click', event => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
       const bookId = bookCard.dataset.bookId;
-      console.log(bookId);
       // requestCard(bookId);
     }
   });
@@ -60,7 +61,6 @@ export const renderBooksList = async () => {
   booksList.addEventListener('click', async event => {
     if (event.target.classList.contains('category-books-button')) {
       const category = event.target.dataset.categoryBooks;
-      console.log(category);
       renderBooksListCategori(category);
       checkCurrentCategory(category);
     }
