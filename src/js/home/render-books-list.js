@@ -25,6 +25,7 @@ export const renderBooksList = async () => {
 
     const categorySection = `
     <section class="category-section">
+      <h1  class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>
       <h2>${category.list_name}</h2>
       <div class="books-container">
         ${books}
@@ -60,6 +61,10 @@ export const renderBooksListCategori = async (category) => {
   const booksListCategori = await fetchApiCategories.getCategoriesSelected(category);
   booksList.innerHTML = '';
 
+  const booksTitle = category.split(' ');
+  const booksTitleLast = booksTitle.pop();
+  const booksTitleFirst = booksTitle.join(" ");
+
   const books = booksListCategori.map(book => {
     return `
     <div class="book-card" data-book-id="${book._id}">
@@ -74,7 +79,7 @@ export const renderBooksListCategori = async (category) => {
 
   const booksSection = `
     <section class="category-section">
-      <h1>${category}</h1>
+      <h1  class="books-list-title">${booksTitleFirst} <span class="span-books-list-title">${booksTitleLast}</span></h1>
       <div class="books-container">
         ${books}
       </div>
