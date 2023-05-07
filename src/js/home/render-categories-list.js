@@ -59,5 +59,5 @@ export function checkCurrentCategory(category) {
   );
   checkCategory.classList.add('current-category');
 
-  categoriesList.scrollTo(0, checkCategory.offsetTop - 25);
+  categoriesList.scrollTo(0, checkCategory.offsetTop - 40);
 }
