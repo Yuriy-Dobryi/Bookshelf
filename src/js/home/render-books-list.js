@@ -1,6 +1,6 @@
 import FetchCategoriesAll from './service-categories-all';
-import { openCardModal } from './modal-card';
 import { checkCurrentCategory } from './render-categories-list';
+import { openCardModal } from './modal-card';
 
 const viewportWidth = window.innerWidth;
 let booksPerCategory = 5;
