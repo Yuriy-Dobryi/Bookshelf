@@ -1,5 +1,5 @@
 import FetchCategoriesAll from './service-categories-all';
-import { requestCard } from './modal-card';
+import { openCardModal } from './modal-card';
 import { checkCurrentCategory } from './render-categories-list';
 
 const viewportWidth = window.innerWidth;
@@ -50,11 +50,13 @@ export const renderBooksList = async () => {
   const mainTitle = `<h1 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>`;
   booksList.insertAdjacentHTML("afterbegin", mainTitle);
 
-  booksList.addEventListener('click', event => {
+  booksList.addEventListener('click', async event => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
       const bookId = bookCard.dataset.bookId;
-      // requestCard(bookId);
+      const selectedBook = await fetchApiCategories.getBookId(bookId);
+
+      openCardModal(selectedBook);
     }
   });
 
