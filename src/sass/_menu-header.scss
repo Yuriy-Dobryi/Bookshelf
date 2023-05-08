@@ -446,3 +446,15 @@ body.mobile-menu-open {
         margin-left: 4px;
     }
 }
+
+// Desktop
+
+@media screen and (min-width: 1440px) {
+    .logo-link {
+        margin-right: 76px;
+    }
+
+    .navigation-list {
+        gap: 24px;
+    }
+}
