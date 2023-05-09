@@ -26,10 +26,14 @@
     display: flex;
     gap: 8px;
 }
-
+.text {
+    font-size: 22px;
+    font-weight: 700;
+}
 .logo-icon {
     width: 24px;
     height: 24px;
+    margin-left: 20px;
 }
 
 .logo-name.dark-theme {
@@ -58,10 +62,13 @@
 .mobile-menu-open-btn {
     width: 28px;
     height: 28px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
 .burger-icon {
+    width: 28px; 
+    height: 28px;
     fill: var(--color-basic-text);
 }
 
@@ -251,7 +258,7 @@
     color: #ffffff;
 }
 
-.current {
+.active {
     padding: 8px 16px;
     font-weight: 700;
     background-color: var(--color-interactive);
@@ -449,7 +456,7 @@ body.mobile-menu-open {
 
 // Desktop
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
     .logo-link {
         margin-right: 76px;
     }
