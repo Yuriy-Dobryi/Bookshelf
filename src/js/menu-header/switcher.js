@@ -3,7 +3,7 @@
 const main = document.querySelector('main');
 
 const body = document.querySelector('body');
-const toggle = document.querySelector('.toggle');
+const toggle = document.querySelector('.');
 
 let getMode = localStorage.getItem('mode');
 if( getMode && getMode === 'dark'){
