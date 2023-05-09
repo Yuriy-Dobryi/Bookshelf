@@ -14,23 +14,20 @@
 }
 
 .modal-info {
-
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-
-  padding: 40px 22px;
-  width: calc(100% - 20px * 2);
-
-  background: var(--color-light-theme);
+  width: 100%;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding: 40px 24px;
+  background-color: var(--color-light-theme);
   border: 2px solid var(--color-dark-theme);
   border-radius: 18px;
+  position: relative;
 
-  transition: transform var(--cubic-bezier), opacity var(--cubic-bezier), visibility var(--cubic-bezier), scale var(--cubic-bezier);
+
 }
+
+
+
 
 .modal__add-btn,
 .modal__remove-btn {
@@ -61,3 +58,5 @@
   }
 
 }
+
+
