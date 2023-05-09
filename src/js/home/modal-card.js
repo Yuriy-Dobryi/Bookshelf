@@ -6,7 +6,7 @@ import appleImage1 from '../../images/card/book-desktop.png';
 import appleImage2 from '../../images/card/bookOpen-desktop@2x.png';
 import bookshopImage1 from '../../images/card/bookShop-desktop.png';
 import bookshopImage2 from '../../images/card/bookShop-desktop.png';
-import closeIcon from '../../images/sprite.svg#icon-close';
+import sprite from '../../images/sprite.svg';
 
 
 
@@ -20,7 +20,7 @@ const { book_image, title, author, description, buy_links } = selectedBook;
     <div class="modal-info">
     <button type="button" class="modal__close-btn">
     <svg class="modal__close-icon" width="8" height="8">
-      <use href="${closeIcon}"></use>
+      <use href="${sprite}#icon-close"></use>
     </svg>
   </button>
     <div class="modal-pop__container">
@@ -31,25 +31,19 @@ const { book_image, title, author, description, buy_links } = selectedBook;
         <p class="modal-info__text">${description}</p>
         <ul class="modal-info__list">
           <li>
-            <a class="modal-info__link" href="${
-              buy_links[0].url
-            }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
+            <a class="modal-info__link" href="${buy_links[0].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
               <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="amazon" width="62"
               height="19" />
             </a>
           </li>
           <li>
-            <a class="modal-info__link" href="${
-              buy_links[1].url
-            }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
+            <a class="modal-info__link" href="${buy_links[1].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
               <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="apple-books" width="33"
               height="32" />
             </a>
           </li>
           <li>
-            <a class="modal-info__link" href="${
-              buy_links[4].url
-            }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
+            <a class="modal-info__link" href="${buy_links[4].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
               <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="bookshop"  width="38"
               height="36"/>
             </a>
