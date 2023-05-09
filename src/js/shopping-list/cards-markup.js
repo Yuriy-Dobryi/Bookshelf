@@ -17,7 +17,7 @@ function renderShoppingCardList(bookList) {
   shoppingListRef.innerHTML = bookList
     .map(
       ({ book }) => `
-      заміни цей текст на свою розмітку
+      *
       `
     )
     .join();
@@ -34,7 +34,7 @@ function checkViewPortForSupportDisplay() {
   const supportRef = document.querySelector('.support');
   const viewportWidth = window.innerWidth;
 
-  if (viewportWidth >= 1440) {
+  if (viewportWidth < 1440) {
     supportRef.classList.add('is-hide');
   }
 }
