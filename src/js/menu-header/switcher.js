@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const inputCheck = document.querySelector('#color-toggle');
 
 inputCheck.addEventListener('check', (e) => {
@@ -7,3 +8,5 @@ inputCheck.addEventListener('check', (e) => {
         localStorage.setItem('theme', `light`)
     }
 });
+=======
+>>>>>>> Stashed changes
