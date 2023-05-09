@@ -7,14 +7,48 @@ body .shopping-list-title._empty {
   letter-spacing: -0.04em;
 }
 
-body .empty-shopping-text {
-  width: 244px;
+body .empty-shopping-list {
+  width: 265px;
   margin-left: auto;
   margin-right: auto;
+}
+
+body .empty-shopping-text {
+  width: 244px;
   margin-bottom: 14px;
 
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  body .shopping-list-title._empty {
+    width: 292px;
+    margin-bottom: 140px;
+
+    font-size: 48px;
+    line-height: 1.08;
+  }
+  body .empty-shopping-list {
+    width: 349px;
+  }
+  body .empty-shopping-text {
+    width: 100%;
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    line-height: 1.33;
+    text-align: center;
+  }
+  body .empty-shopping-books-img {
+    width: 322px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 1440px) { 
+
 }

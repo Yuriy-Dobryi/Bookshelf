@@ -1,7 +1,11 @@
 import books from '../../images/book-logo/empty-logo.png';
 
 const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
+
+const supportRef = document.querySelector('.support');
+supportRef.classList.add('is-hide');
 const shoppingListRef = document.querySelector('.shopping-list-books');
+const emptyShoppingList = document.querySelector('.empty-shopping-list');
 
 export function renderShoppingList() {
   if (bookList) {
@@ -22,10 +26,10 @@ function renderShoppingCardList(bookList) {
 }
 
 function renderEmptyShoppingList() {
-  shoppingListRef.insertAdjacentHTML('afterend', `
+  emptyShoppingList.innerHTML = `
   <p class="empty-shopping-text">This page is empty, add some books and proceed to order.</p>
-  <img class="empty-shopping-books" src="${books}" alt="Alternative Books, when shopping list is empty">
-  `);
+  <img class="empty-shopping-books-img" src="${books}" alt="Alternative Books, when shopping list is empty">
+  `;
 }
 
 renderShoppingList();
