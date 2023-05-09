@@ -6,7 +6,7 @@ import appleImage1 from '../../images/card/book-desktop.png';
 import appleImage2 from '../../images/card/bookOpen-desktop@2x.png';
 import bookshopImage1 from '../../images/card/bookShop-desktop.png';
 import bookshopImage2 from '../../images/card/bookShop-desktop.png';
-
+import closeIcon from '../../images/sprite.svg#icon-close';
 
 
 
@@ -18,6 +18,11 @@ const { book_image, title, author, description, buy_links } = selectedBook;
   const modalCard = basicLightbox.create(
     `
     <div class="modal-info">
+    <button type="button" class="modal__close-btn">
+    <svg class="modal__close-icon" width="8" height="8">
+      <use href="${closeIcon}"></use>
+    </svg>
+  </button>
     <div class="modal-pop__container">
     <img class="modal-info__image" src="${book_image}" alt="${title}" />
       <div class="modal-info__box">
