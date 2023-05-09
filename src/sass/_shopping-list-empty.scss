@@ -31,9 +31,11 @@ body .empty-shopping-text {
     font-size: 48px;
     line-height: 1.08;
   }
+
   body .empty-shopping-list {
     width: 349px;
   }
+
   body .empty-shopping-text {
     width: 100%;
     margin-bottom: 20px;
@@ -42,13 +44,10 @@ body .empty-shopping-text {
     line-height: 1.33;
     text-align: center;
   }
+
   body .empty-shopping-books-img {
     width: 322px;
     margin-left: auto;
     margin-right: auto;
   }
-}
-
-@media screen and (min-width: 1440px) { 
-
 }

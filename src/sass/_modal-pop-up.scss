@@ -1,4 +1,3 @@
-
 .backdrop {
   position: fixed;
   z-index: 5;
@@ -10,54 +9,55 @@
   overflow-y: scroll;
   overflow: hidden;
 
-  transition: opacity , var(--cubic-bezier) --cubic-bezier visibility ;
+  transition: opacity, var(--cubic-bezier) --cubic-bezier visibility;
 
 }
+
 .modal-info {
 
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
 
-    padding: 40px 22px;
-    width: calc(100% - 20px * 2);
+  padding: 40px 22px;
+  width: calc(100% - 20px * 2);
 
-    background: var(--color-light-theme);
-    border: 2px solid var(--color-dark-theme);
-    border-radius: 18px;
+  background: var(--color-light-theme);
+  border: 2px solid var(--color-dark-theme);
+  border-radius: 18px;
 
-    transition: transform var(--cubic-bezier), opacity var(--cubic-bezier), visibility var(--cubic-bezier), scale var(--cubic-bezier);
+  transition: transform var(--cubic-bezier), opacity var(--cubic-bezier), visibility var(--cubic-bezier), scale var(--cubic-bezier);
 }
 
 .modal__add-btn,
 .modal__remove-btn {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 12px 28px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 28px;
 
-    border: 2px solid var(--color-brand);
-    border-radius: 40px;
+  border: 2px solid var(--color-brand);
+  border-radius: 40px;
 
-    background-color: inherit;
+  background-color: inherit;
 
-    text-align: center;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: calc(18 / 14);
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: inherit;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: inherit;
 
-    transition: color var(--cubic-bezier), background-color var(--cubic-bezier), transform var(--cubic-bezier), opacity var(--cubic-bezier);
+  transition: color var(--cubic-bezier), background-color var(--cubic-bezier), transform var(--cubic-bezier), opacity var(--cubic-bezier);
 
-    &:hover,
-    &:focus {
-        color: --color-light-theme;
-        background-color: var(--color-brand);
-    }
-
+  &:hover,
+  &:focus {
+    color: --color-light-theme;
+    background-color: var(--color-brand);
   }
+
+}

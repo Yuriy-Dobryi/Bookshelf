@@ -9,24 +9,14 @@ function onOpenMobileMenu() {
   body.classList.toggle('mobile-menu-open');
 }
 
-  // const currentPageName = document.querySelectorAll('.navigation-item');
-  // currentPageName.forEach(link => {
-  //   if (link.href === './index.html' || (link.href ===  './unbreakable/index.html') || (link.href ===  './unbreakable/')) {
-  //     currentPageName.add('current');
-  //   } else {
-  //     currentPageName.remove('current');
-  //   }
-  // });
-  function setActiveLink() {
+function setActivePage() {
   const links = document.querySelectorAll('.navigation-link');
-  const currentUrl = window.location.href;
+  const currentPage = window.location.href;
   links.forEach(link => {
-    if (link.href === currentUrl) {
+    if (link.href === currentPage) {
       link.classList.add('active');
-    } else {
-      link.classList.remove('active');
     }
   });
-  }
+}
 
-// console.log('hello from menu header');
+setActivePage();
