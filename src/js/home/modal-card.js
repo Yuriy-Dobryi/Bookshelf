@@ -18,7 +18,8 @@ const { book_image, title, author, description, buy_links } = selectedBook;
   const modalCard = basicLightbox.create(
     `
     <div class="modal-info">
-      <img class="modal-info__image" src="${book_image}" alt="${title}" />
+    <div class="modal-pop__container">
+    <img class="modal-info__image" src="${book_image}" alt="${title}" />
       <div class="modal-info__box">
         <h2 class="modal-info__title">${title}</h2>
         <p class="modal-info__author">${author}</p>
@@ -50,7 +51,7 @@ const { book_image, title, author, description, buy_links } = selectedBook;
           </li>
         </ul>
       </div>
-
+</div>
     <button class="modal__add-btn modal__add-btn-js" type="submit">
     add to shopping list
 </button>
@@ -62,7 +63,8 @@ const { book_image, title, author, description, buy_links } = selectedBook;
         Сongratulations! You have added the book to the shopping list. To
     delete, press the button “Remove from the shopping list”.
     </p>
-</div>
+    </div>
+
 </div>
    `,
 
