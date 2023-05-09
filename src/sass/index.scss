@@ -4,10 +4,12 @@
 @import './default/container';
 
 @import './menu-header';
-@import './_home';
+@import './home';
 @import './home-blocks';
-@import './_home-categories-list';
+@import './home-categories-list';
 @import './support';
 @import './shopping-list';
+@import './shopping-list-card';
+@import './shopping-list-empty';
 @import './switcher';
 @import './modal-pop-up';
