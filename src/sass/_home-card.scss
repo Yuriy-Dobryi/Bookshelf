@@ -6,17 +6,18 @@
   --category-font: 'DM Sans';
 }
 
-.books-container :nth-of-type(n + 2) {
-  display: none;
-}
 .books-list-title {
-  padding-bottom: 40px;
   font-family: var(--title-font);
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
   line-height: 1.08;
 }
+
+// .category-section:not(:first-child)h1 {
+//   display: none;
+// }
+
 .category-section {
   padding-top: 40px;
 }
@@ -94,13 +95,6 @@
     grid-row-gap: 40px;
   }
 
-  .books-container :nth-of-type(n + 2) {
-    display: block;
-  }
-  .books-container :nth-of-type(n + 4) {
-    display: none;
-  }
-
   .book-image {
     height: 316px;
     width: 218px;
@@ -127,8 +121,5 @@
   .book-image {
     height: 256px;
     width: 180px;
-  }
-  .books-container :nth-of-type(n + 4) {
-    display: block;
   }
 }
