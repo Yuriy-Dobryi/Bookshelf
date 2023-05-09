@@ -1,25 +1,9 @@
-const main = document.querySelector('main');
+const inputCheck = document.querySelector('#toggle');
 
-const body = document.querySelector('body');
-const toggle = document.querySelector('.toggle');
-
-let getMode = localStorage.getItem('mode');
-if( getMode && getMode === 'dark'){
-    body.classList.add('dark');
-    toggle.classList.add("active");
-}
-
-toggle.addEventListener('click', () =>{
-    body.classList.toggle('dark');
-    
-    if(!body.classList.contains('dark')) {
-        return localStorage.setItem('mode', 'ligth');
+inputCheck.addEventListener('change', (e) => {
+    if (inputCheck.checked === true) {
+        localStorage.setItem('theme', `dark`)
+    } else {
+        localStorage.setItem('theme', `light`)
     }
-        localStorage.setItem('mode', 'dark');
 });
-
-toggle.addEventListener('click',() => {
-    return toggle.classList.toggle("active");
-});
-
-

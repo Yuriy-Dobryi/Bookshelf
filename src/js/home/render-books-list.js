@@ -1,6 +1,6 @@
 import FetchCategoriesAll from './service-categories-all';
-import { requestCard } from './modal-card';
 import { checkCurrentCategory } from './render-categories-list';
+import { openCardModal } from './modal-card';
 
 const viewportWidth = window.innerWidth;
 let booksPerCategory = 5;
@@ -25,7 +25,7 @@ export const renderBooksList = async () => {
       .map(book => {
         return `  
         <div class="book-card" data-book-id="${book._id}">
-          <img src="${book.book_image}" alt="${book.title}" class="book-image">
+          <img loading="lazy" src="${book.book_image}" alt="${book.title}" class="book-image">
           <div class="book-info">
             <h3 class="book-title">${book.title}</h3>
             <p class="book-autor">${book.author}</p>
@@ -37,7 +37,7 @@ export const renderBooksList = async () => {
 
     const categorySection = `
     <section class="category-section">
-      <h2>${category.list_name}</h2>
+      <h3 class="books-list-title-fo-all-categori">${category.list_name}</h3>
       <div class="books-container">
         ${books}
       </div>
@@ -47,14 +47,16 @@ export const renderBooksList = async () => {
     booksList.insertAdjacentHTML('beforeend', categorySection);
   });
 
-  const mainTitle = `<h1 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>`;
-  booksList.insertAdjacentHTML("afterbegin", mainTitle);
+  const mainTitle = `<h2 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h2>`;
+  booksList.insertAdjacentHTML('afterbegin', mainTitle);
 
-  booksList.addEventListener('click', event => {
+  booksList.addEventListener('click', async event => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
       const bookId = bookCard.dataset.bookId;
-      // requestCard(bookId);
+      const selectedBook = await fetchApiCategories.getBookId(bookId);
+
+      openCardModal(selectedBook);
     }
   });
 
@@ -83,7 +85,7 @@ export const renderBooksListCategori = async category => {
     .map(book => {
       return `
     <div class="book-card" data-book-id="${book._id}">
-        <img src="${book.book_image}" alt="${book.title}" class="book-image">
+        <img loading="lazy" src="${book.book_image}" alt="${book.title}" class="book-image">
         <div class="book-info">
           <h3 class="book-title">${book.title}</h3>
           <p class="book-autor">${book.author}</p>
@@ -95,7 +97,7 @@ export const renderBooksListCategori = async category => {
 
   const booksSection = `
     <section class="category-section">
-      <h1  class="books-list-title">${booksTitleFirst} <span class="span-books-list-title">${booksTitleLast}</span></h1>
+      <h2  class="books-list-title">${booksTitleFirst} <span class="span-books-list-title">${booksTitleLast}</span></h2>
       <div class="books-container">
         ${books}
       </div>
@@ -104,5 +106,5 @@ export const renderBooksListCategori = async category => {
 
   booksList.insertAdjacentHTML('beforeend', booksSection);
 
-  window.scrollTo(0, 0);
+  booksList.scrollTo(0, 0);
 };

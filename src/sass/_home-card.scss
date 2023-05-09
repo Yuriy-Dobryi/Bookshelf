@@ -1,0 +1,134 @@
+// Стилі рендеру карток книг
+
+:root {
+  --h2-font-color: #b4afaf;
+  --title-font: 'DM Sans';
+  --category-font: 'DM Sans';
+}
+
+.books-container :nth-of-type(n + 2) {
+  display: none;
+}
+.books-list-title {
+  padding-bottom: 40px;
+  font-family: var(--title-font);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08;
+}
+.category-section {
+  padding-top: 40px;
+}
+.category-section h2 {
+  height: 18px;
+  font-family: var(--category-font);
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.29;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--h2-font-color);
+}
+
+.books-container {
+  display: block;
+  padding-top: 18px;
+}
+.book-image {
+  display: block;
+  height: 485px;
+  width: 335px;
+  border-color: #e0e0e0;
+  border-radius: 8px;
+}
+.book-info {
+  padding-top: 14px;
+  height: 50px;
+}
+.book-title {
+  overflow: hidden;
+  height: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--category-font);
+  font-style: normal;
+  line-height: 1.125;
+  text-transform: uppercase;
+}
+
+.book-autor {
+  height: 14px;
+  font-family: var(--category-font);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.17;
+  margin-top: 4px;
+  color: #b4afaf;
+}
+
+.category-books-button {
+  display: block;
+  margin-left: auto;
+  margin-top: 8px;
+  height: 46px;
+  width: 124px;
+  border-radius: 40px;
+  border: 2px solid var(--color-brand);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+}
+
+@media screen and (min-width: 768px) {
+  .category-section {
+    height: 510px;
+    width: 704px;
+  }
+
+  .books-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(335px, auto);
+    grid-column-gap: 24px;
+    grid-row-gap: 40px;
+  }
+
+  .books-container :nth-of-type(n + 2) {
+    display: block;
+  }
+  .books-container :nth-of-type(n + 4) {
+    display: none;
+  }
+
+  .book-image {
+    height: 316px;
+    width: 218px;
+  }
+
+  .category-books-button {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .category-section {
+    height: 448px;
+    width: 996px;
+  }
+  .books-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    grid-column-gap: 24px;
+    grid-row-gap: 40px;
+  }
+  .book-image {
+    height: 256px;
+    width: 180px;
+  }
+  .books-container :nth-of-type(n + 4) {
+    display: block;
+  }
+}

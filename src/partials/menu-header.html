@@ -1,11 +1,77 @@
 <header class="header">
-  <div class="container header-menu">
-
-    <a href="./index.html">Bookshelf</a>
-    <a href="./index.html">HOME</a>
-    <a href="./shopping-list.html">SHOPPING LIST</a>
-    
-    <div class="toggle"></div>
-    
+  <div class="header-container container">
+    <div class="header-box">
+      <a class="logo-link" href="./index.html">
+        <svg class="logo-icon">
+          <use href="./images/sprite.svg#icon-logo"></use>
+        </svg></a>
+      <nav class="navigation-main">
+        <ul class="navigation-list ">
+          <li class="navigation-item">
+            <a class="navigation-link " href="/src/index.html">Home</a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link" href="/src/shopping-list.html">Shopping List
+              <svg class="logo-shop">
+                <use href="./images/sprite.svg#icon-shop"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-button-box">
+        <label class="toggle">
+          <input type="checkbox" id="toggle">
+          <span class="slider"></span>
+        </label>
+        <button type="button" class="mobile-menu-open-btn" data-mobile-menu-btn>
+          <svg class="burger-icon" width="28" height="28">
+            <use class="mobile-menu-open-icon" href="./images/sprite.svg#icon-burger-menu"></use>
+            <use class="mobile-menu-close-icon" href="./images/sprite.svg#icon-close"></use>
+          </svg>
+        </button>
+        <button type="button" class="sing-up-btn " data-modal-open-sign>
+          Sing up
+          <svg class="sing-up-icon">
+            <use href="./images/sprite.svg#icon-right-arrow"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="mobile-menu-container" data-mobile-menu>
+    <div class="sign-up-mobile">
+      <button type="button" class="sign-up-btn-mobile " data-modal-open-sing>Sing up<svg class="sign-up-icon">
+          <use href="#"></use>
+        </svg></button>
+    </div>
+    <!-- <div class="authorizated-mobile-menu-box">
+      <div class="authorizated-mobile-menu-user">
+        <div class="user-icon-box">
+          <svg class="user-icon">
+            <use href="./images/menu-header/user-logo.png"></use>
+          </svg>
+        </div>
+        <p class="user-name">Stephen</p>
+      </div> -->
+    <ul class="mobile-navigation-list">
+      <li class="mobile-navigation-item active">
+        <a class="mobile-navigation-link" href="/src/index.html">Home</a>
+      </li>
+      <li class="mobile-navigation-item">
+        <a class="mobile-navigation-link" href="/src/shopping-list.html">Shopping List<svg class="logo-shop">
+            <use href="./images/sprite.svg#icon-shop"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <button type="button" class="log-out-mobile-btn">
+      Log out
+      <svg class="sing-up-icon">
+        <use href="./images/sprite.svg#icon-right-arrow"></use>
+      </svg>
+    </button>
+  </div>
   </div>
 </header>
