@@ -48,7 +48,7 @@ export const renderBooksList = async () => {
   });
 
   const mainTitle = `<h1 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>`;
-  booksList.insertAdjacentHTML("afterbegin", mainTitle);
+  booksList.insertAdjacentHTML('afterbegin', mainTitle);
 
   booksList.addEventListener('click', async event => {
     const bookCard = event.target.closest('.book-card');
@@ -106,5 +106,5 @@ export const renderBooksListCategori = async category => {
 
   booksList.insertAdjacentHTML('beforeend', booksSection);
 
-  window.scrollTo(0, 0);
+  booksList.scrollTo(0, 0);
 };

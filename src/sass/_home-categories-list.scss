@@ -1,6 +1,7 @@
 // Список категорій
 .categories-list {
   display: flex;
+  position: relative;
   flex-direction: column;
   row-gap: 24px;
 
