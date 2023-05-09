@@ -17,51 +17,54 @@ const { book_image, title, author, description, buy_links } = selectedBook;
 
   const modalCard = basicLightbox.create(
     `
+
     <div class="modal-info">
-      <img class="modal-info__image" src="${book_image}" alt="${title}" />
-      <div class="modal-info__box">
-        <h2 class="modal-info__title">${title}</h2>
-        <p class="modal-info__author">${author}</p>
-        <p class="modal-info__text">${description}</p>
-        <ul class="modal-info__list">
-          <li>
-            <a class="modal-info__link" href="${
-              buy_links[0].url
-            }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
-              <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="amazon" width="62"
-              height="19" />
-            </a>
-          </li>
-          <li>
-            <a class="modal-info__link" href="${
-              buy_links[1].url
-            }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
-              <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="apple-books" width="33"
-              height="32" />
-            </a>
-          </li>
-          <li>
-            <a class="modal-info__link" href="${
-              buy_links[4].url
-            }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
-              <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="bookshop"  width="38"
-              height="36"/>
-            </a>
-          </li>
-        </ul>
-      </div>
+
+    <img class="modal-info__image" src="${book_image}" alt="${title}" />
+    <div class="modal-info__box">
+      <h2 class="modal-info__title">${title}</h2>
+      <p class="modal-info__author">${author}</p>
+      <p class="modal-info__text">${description}</p>
+      <ul class="modal-info__list">
+        <li>
+          <a class="modal-info__link" href="${
+            buy_links[0].url
+          }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
+            <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="amazon" width="62"
+            height="19" />
+          </a>
+        </li>
+        <li>
+          <a class="modal-info__link" href="${
+            buy_links[1].url
+          }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
+            <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="apple-books" width="33"
+            height="32" />
+          </a>
+        </li>
+        <li>
+          <a class="modal-info__link" href="${
+            buy_links[4].url
+          }" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
+            <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="bookshop"  width="38"
+            height="36"/>
+          </a>
+        </li>
+      </ul>
     </div>
-    <button class="modal__add-btn modal__add-btn-js" type="submit">
-    add to shopping list
+
+  <button class="modal__add-btn modal__add-btn-js" type="submit">
+  add to shopping list
 </button>
 <div class="modal__remove-btn-wrapper modal__remove-block-js">
-    <button class="modal__remove-btn modal__remove-btn-js" type="submit">
-        remove from the shopping list
-    </button>
-    <p class="modal__remobe-btn-message">
-        Сongratulations! You have added the book to the shopping list. To
-    delete, press the button “Remove from the shopping list”.
-    </p>
+  <button class="modal__remove-btn modal__remove-btn-js" type="submit">
+      remove from the shopping list
+  </button>
+  <p class="modal__remobe-btn-message">
+      Сongratulations! You have added the book to the shopping list. To
+  delete, press the button “Remove from the shopping list”.
+  </p>
+</div>
 </div>
    `,
 
@@ -99,4 +102,4 @@ function addBookInLocalStorage(selectedBook) {
   } else {
     localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify([selectedBook]));
   }
-}
+};
