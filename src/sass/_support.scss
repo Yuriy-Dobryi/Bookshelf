@@ -1,8 +1,82 @@
 // Тестові стилі для картки Support
 .support {
+  position: relative;
   width: 335px;
   height: 352px;
-  border: red 1px solid;
+
+  background: radial-gradient(
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
+}
+
+.support-title {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.trident-icon {
+  margin-left: 12px;
+}
+
+.foundations-list {
+  margin-top: 40px;
+}
+
+.foundation {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.foundation-counter {
+  margin-right: 16px;
+  margin-left: 40px;
+
+  font-size: 14px;
+
+  color: #ffffff;
+}
+
+.foundation-icon {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7500%)
+    hue-rotate(134deg) brightness(118%) contrast(100%);
+}
+
+.foundations-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  fill: #4f2ee8;
+  transform: rotate(180deg);
 }
 
 @media screen and (min-width: 375px) {
