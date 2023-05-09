@@ -2,8 +2,6 @@ import books from '../../images/book-logo/empty-logo.png';
 
 const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
-const supportRef = document.querySelector('.support');
-supportRef.classList.add('is-hide');
 const shoppingListRef = document.querySelector('.shopping-list-books');
 const emptyShoppingList = document.querySelector('.empty-shopping-list');
 
@@ -32,4 +30,14 @@ function renderEmptyShoppingList() {
   `;
 }
 
+function checkViewPortForSupportDisplay() {
+  const supportRef = document.querySelector('.support');
+  const viewportWidth = window.innerWidth;
+
+  if (viewportWidth >= 1440) {
+    supportRef.classList.add('is-hide');
+  }
+}
+
+checkViewPortForSupportDisplay();
 renderShoppingList();
