@@ -1,3 +1,5 @@
+// Switch Theme Mode
+
 const main = document.querySelector('main');
 
 const body = document.querySelector('body');
@@ -21,5 +23,3 @@ toggle.addEventListener('click', () =>{
 toggle.addEventListener('click',() => {
     return toggle.classList.toggle("active");
 });
-
-
