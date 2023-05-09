@@ -37,7 +37,7 @@ export const renderBooksList = async () => {
 
     const categorySection = `
     <section class="category-section">
-      <h2>${category.list_name}</h2>
+      <h3 class="books-list-title-fo-all-categori">${category.list_name}</h3>
       <div class="books-container">
         ${books}
       </div>
@@ -47,7 +47,7 @@ export const renderBooksList = async () => {
     booksList.insertAdjacentHTML('beforeend', categorySection);
   });
 
-  const mainTitle = `<h1 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h1>`;
+  const mainTitle = `<h2 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h2>`;
   booksList.insertAdjacentHTML('afterbegin', mainTitle);
 
   booksList.addEventListener('click', async event => {
@@ -97,7 +97,7 @@ export const renderBooksListCategori = async category => {
 
   const booksSection = `
     <section class="category-section">
-      <h1  class="books-list-title">${booksTitleFirst} <span class="span-books-list-title">${booksTitleLast}</span></h1>
+      <h2  class="books-list-title">${booksTitleFirst} <span class="span-books-list-title">${booksTitleLast}</span></h2>
       <div class="books-container">
         ${books}
       </div>
