@@ -26,10 +26,14 @@
     display: flex;
     gap: 8px;
 }
-
+.text {
+    font-size: 22px;
+    font-weight: 700;
+}
 .logo-icon {
     width: 109px;
     height: 28px;
+    margin-left: 20px;
 }
 
 .logo-name.dark-theme {
@@ -58,6 +62,9 @@
 .mobile-menu-open-btn {
     width: 28px;
     height: 28px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    border: none;
     cursor: pointer;
 }
 
@@ -251,7 +258,7 @@
     color: #ffffff;
 }
 
-.current {
+.active {
     padding: 8px 16px;
     font-weight: 700;
     background-color: var(--color-interactive);
@@ -449,7 +456,7 @@ body.mobile-menu-open {
 
 // Desktop
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
     .logo-link {
         margin-right: 76px;
     }
@@ -457,4 +464,20 @@ body.mobile-menu-open {
     .navigation-list {
         gap: 24px;
     }
+    .sign-up-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: inherit;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.29;
+        letter-spacing: -0.04em;
+        padding: 14px;
+        border: 1.5px solid var (--color-basic-text);
+        border-radius: 18px;
+        color: #ffffff;
+        background-color: var(--color-brand);
+        cursor: pointer;
+}
 }
