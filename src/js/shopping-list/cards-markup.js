@@ -7,7 +7,7 @@ const emptyShoppingList = document.querySelector('.empty-shopping-list');
 
 export function renderShoppingList() {
   if (bookList) {
-    // renderShoppingCardList(bookList);
+    renderShoppingCardList(bookList);
   } else {
     renderEmptyShoppingList();
   }
@@ -16,8 +16,56 @@ export function renderShoppingList() {
 function renderShoppingCardList(bookList) {
   shoppingListRef.innerHTML = bookList
     .map(
-      ({ book }) => `
-      *
+      ({
+        book_image,
+        book_image_width,
+        book_image_height,
+        list_name,
+        age_group,
+        description,
+        author,
+      }) => `
+      <li class="gallery__item">
+          <a class="gallery__link" href="large-image.jpg">
+              <img
+              class="gallery__image"
+              src="${book_image}"
+              width="${book_image_width}"
+              height="${book_image_height}"
+              alt=""
+              />
+          </a>
+          <div class="div_card">
+          <h2 class="title_card">${list_name}</h2>
+          <p class="card_min-title">${age_group}</p>
+          <p class="card_text">${description}</p>
+          <p class="card_avter">${author}</p>
+          </div>
+          <div class="div_svg-card">
+          <a href="#">
+            <img src="./src/card/amazon-desktop.png"
+                srcset="./src/card/amazon-desktop.png 1x, ./src/card/amazon-desktop@2x.png 2x"
+                alt="">
+            </a>
+            <a href="#">
+            <img src="./src/card/book-desktop.png"
+                srcset="./src/card/book-desktop.png 1x, ./src/card/book-desktop@2x.png 2x"
+                alt="">
+            </a>
+            <a href="#">
+            <img src="./src/card/bookShop-desktop.png"
+                srcset="./src/card/bookShop-desktop.png 1x, ./src/card/bookShop-desktop@2x.png 2x"
+                alt="">
+            </a>
+            <div class="div-card_close">
+            <a href="#">
+            <svg class="" width="34" height="34">
+                <use href="#"></use>
+            </svg>
+            </a>
+            </div>
+
+      </li>
       `
     )
     .join();
