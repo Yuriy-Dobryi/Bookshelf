@@ -98,15 +98,35 @@ export async function openCardModal(selectedBook) {
   const addBookBtnRef = document.querySelector('.modal__add-btn');
   const removeBookBtnRef = document.querySelector('.modal__remove-btn-wrapper');
 
+  function setBtnsStateByLocalStorage() {
+    const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
+
+    if (bookList) {
+      const bookExistsInList = bookList.find(book => book._id === selectedBook._id);
+
+      if (bookExistsInList) {
+        addBookBtnRef.classList.add('visually-hidden');
+        removeBookBtnRef.classList.remove('visually-hidden');
+      } else {
+        removeBookBtnRef.classList.add('visually-hidden');
+        addBookBtnRef.classList.remove('visually-hidden');
+      }
+    } else {
+      removeBookBtnRef.classList.add('visually-hidden');
+      addBookBtnRef.classList.remove('visually-hidden');
+    }
+  }
+  setBtnsStateByLocalStorage();
+
   function onAddBookBtn() {
     addBookInLocalStorage(selectedBook);
-    removeBookBtnRef.classList.remove('visually-hidden');
     addBookBtnRef.classList.add('visually-hidden');
+    removeBookBtnRef.classList.remove('visually-hidden');
   }
   function onRemoveBookBtn() {
     removeBookInLocalStorage(selectedBook);
-    addBookBtnRef.classList.remove('visually-hidden');
     removeBookBtnRef.classList.add('visually-hidden');
+    addBookBtnRef.classList.remove('visually-hidden');
   }
 
   addBookBtnRef.addEventListener('click', onAddBookBtn);
@@ -117,9 +137,7 @@ function addBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
   if (bookList) {
-    const bookExistsInList = bookList.find(
-      book => book._id === selectedBook._id
-    );
+    const bookExistsInList = bookList.find(book => book._id === selectedBook._id);
 
     if (!bookExistsInList) {
       bookList.push(selectedBook);

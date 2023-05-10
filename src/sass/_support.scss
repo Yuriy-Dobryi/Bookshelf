@@ -3,6 +3,7 @@
   position: relative;
   width: 335px;
   height: 352px;
+  margin-bottom: 40px;
 
   padding-top: 24px;
   padding-bottom: 20px;
@@ -110,7 +111,6 @@
 @media screen and (min-width: 768px) {
   .support {
     height: 472px;
-
     padding-bottom: 14px;
   }
 
@@ -120,6 +120,7 @@
 
   .foundations-more.up {
     transform: translate(-14px, -14px) rotate(0deg);
+    margin-bottom: 0;
   }
 }
 
@@ -129,13 +130,5 @@
     height: 490px;
 
     padding-bottom: 24px;
-  }
-
-  .foundations-more {
-    transform: translate(-24px, -24px) rotate(180deg);
-  }
-
-  .foundations-more.up {
-    transform: translate(-24px, -24px) rotate(0deg);
   }
 }
