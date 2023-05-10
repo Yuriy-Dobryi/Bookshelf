@@ -119,8 +119,9 @@ function addBookInLocalStorage(selectedBook) {
 const addBtn= document.querySelector('.modal__add-btn');
 const removeBlock=document.querySelector('.modal__remove-btn-wrapper');
 
-addBtn.addEventListener('click', addBtnClick);
 
+
+addBtn.addEventListener('click', addBtnClick);
 
 function addBtnClick(){
   addBookInLocalStorage(selectedBook);
