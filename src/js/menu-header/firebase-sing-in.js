@@ -1,5 +1,9 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 // Відкриття-закриття модалки
 const modalAuth = document.querySelector('.modal-sing-in');
@@ -41,10 +45,19 @@ function onGetUser(e) {
       const user = userCredential.user;
       modalAuth.style.display = 'none';
       console.log(user);
-      // ...
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
 }
+
+// Наглядач за даними користувача
+onAuthStateChanged(auth, user => {
+  if (user) {
+    const uid = user.uid;
+    console.log(user);
+  } else {
+    console.log('User не знайдений');
+  }
+});

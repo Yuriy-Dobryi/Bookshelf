@@ -32,13 +32,15 @@ function onPostUser(e) {
   e.preventDefault();
   const userEmail = document.querySelector('#auth-email').value;
   const userPassword = document.querySelector('#auth-email').value;
+  const userName = document.querySelector('#auth-username');
 
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(userCredential => {
       // Signed in
       const user = userCredential.user;
+      user.displayName = userName;
+
       console.log(user);
-      // ...
     })
     .catch(error => {
       const errorCode = error.code;
