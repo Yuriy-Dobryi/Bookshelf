@@ -20,7 +20,7 @@ export async function openCardModal(selectedBook) {
     </svg>
   </button>
     <div class="modal-pop__container">
-    <img class="modal-info__image" src="${book_image}" alt="${title}" />
+    <img class="modal__img" src="${book_image}" alt="${title}" />
       <div class="modal-info__box">
         <h2 class="modal-info__title">${title}</h2>
         <p class="modal-info__author">${author}</p>
