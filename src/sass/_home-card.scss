@@ -5,7 +5,9 @@
   --title-font: 'DM Sans';
   --category-font: 'DM Sans';
 }
-
+.books-list {
+  padding-left: 40px;
+}
 .books-list-title {
   font-family: var(--title-font);
   font-style: normal;
