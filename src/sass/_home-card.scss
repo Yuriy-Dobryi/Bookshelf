@@ -3,7 +3,8 @@
 :root {
   --h2-font-color: #b4afaf;
 }
-.books-list {
+.book-card {
+  cursor: pointer;
 }
 .books-list-title {
   font-family: var(--font-main);
