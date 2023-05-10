@@ -25,8 +25,8 @@ function renderShoppingCardList(bookList) {
         description,
         author,
       }) => `
-      <li class="gallery__item">
-          <a class="gallery__link" href="large-image.jpg">
+      <li class="galleryitem">
+          <a class="gallerylink" href="large-image.jpg">
               <img
               class="gallery__image"
               src="${book_image}"
@@ -63,8 +63,7 @@ function renderShoppingCardList(bookList) {
                 <use href="#"></use>
             </svg>
             </a>
-            </div>
-
+            </div>  
       </li>
       `
     )
