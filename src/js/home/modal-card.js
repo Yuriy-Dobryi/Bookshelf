@@ -1,5 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+
 import amazonImage1 from '../../images/card/amazon-desktop.png';
 import amazonImage2 from '../../images/card/amazon-desktop@2x.png';
 import appleImage1 from '../../images/card/book-desktop.png';
@@ -11,8 +12,7 @@ import sprite from '../../images/sprite.svg';
 export async function openCardModal(selectedBook) {
   const { book_image, title, author, description, buy_links } = selectedBook;
 
-  const modalCard = basicLightbox.create(
-    `
+  const modalCard = basicLightbox.create(`
     <div class="modal-info">
     <button type="button" class="modal__close-btn">
     <svg class="modal__close-icon" width="8" height="8">
@@ -59,45 +59,58 @@ export async function openCardModal(selectedBook) {
     delete, press the button “Remove from the shopping list”.
     </p>
     </div>
-
-</div>
-   `,
-
+</div>`,
     {
       onShow: () => {
-        document.addEventListener('keydown', onEscapeClick)
+        document.addEventListener('keydown', onEscapeClick);
         document.addEventListener('click', onBackDropClick);
       },
       onClose: () => {
-        document.removeEventListener('click', onBackDropClick)
+        document.removeEventListener('click', onBackDropClick);
         document.removeEventListener('keydown', onEscapeClick);
-        closeBtn.removeEventListener('click', onCloseBtn);
       },
       closable: false,
     }
   );
 
-
   function onEscapeClick({ code }) {
     if (code === 'Escape') {
       modalCard.close();
     }
-  };
+  }
 
-  function onBackDropClick(e) {
-    if (!e.target.closest('.modal-info')) {
+  function onBackDropClick({ target }) {
+    if (!target.closest('.modal-info')) {
       modalCard.close();
     }
   }
 
   modalCard.show();
+
   const closeBtn = document.querySelector('.modal__close-btn');
   closeBtn.addEventListener('click', onCloseBtn);
+
   function onCloseBtn() {
     modalCard.close();
   }
-};
 
+  const addBookBtnRef = document.querySelector('.modal__add-btn');
+  const removeBookBtnRef = document.querySelector('.modal__remove-btn-wrapper');
+
+  function onAddBookBtn() {
+    addBookInLocalStorage(selectedBook);
+    removeBookBtnRef.classList.remove('visually-hidden');
+    addBookBtnRef.classList.add('visually-hidden');
+  }
+  function onRemoveBookBtn() {
+    removeBookInLocalStorage(selectedBook);
+    addBookBtnRef.classList.remove('visually-hidden');
+    removeBookBtnRef.classList.add('visually-hidden');
+  }
+
+  addBookBtnRef.addEventListener('click', onAddBookBtn);
+  removeBookBtnRef.addEventListener('click', onRemoveBookBtn);
+}
 
 function addBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
@@ -107,26 +120,23 @@ function addBookInLocalStorage(selectedBook) {
       book => book._id === selectedBook._id
     );
 
-
     if (!bookExistsInList) {
       bookList.push(selectedBook);
       localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(bookList));
-
     }
   } else {
     localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify([selectedBook]));
   }
-const addBtn= document.querySelector('.modal__add-btn');
-const removeBlock=document.querySelector('.modal__remove-btn-wrapper');
+}
 
+function removeBookInLocalStorage(selectedBook) {
+  const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
+  const updateBookList = bookList.filter(book => book._id !== selectedBook._id);
 
-addBtn.addEventListener('click', addBtnClick);
-
-function addBtnClick(){
-  addBookInLocalStorage(selectedBook);
-  addBtn.classList.add('visually-hidden');
-  removeBlock.classList.remove('visually-hidden');
-};
-
+  if (updateBookList.length === 0) {
+    localStorage.removeItem('SHOPPING-BOOKS-LIST');
+  } else {
+    localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(updateBookList));
+  }
 }
