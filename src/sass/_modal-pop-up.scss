@@ -46,9 +46,11 @@
   padding: 0;
   width: 24px;
   height: 24px;
+
   background: inherit;
   border: none;
   color: var(--color-dark-theme);
+
   transition: color var(--cubic-bezier);
 
   &:hover,
@@ -81,12 +83,9 @@
     gap: 24px;
     margin-bottom: 40px;
 }
-
-
-
 }
 
-.modal__img {
+.modal-info__image {
   margin-bottom: 14px;
 
   width: 287px;
@@ -103,13 +102,25 @@
   }
 }
 
-
 .modal-info-box {
-
   @media screen and (min-width: 768px) {
       width: 280px;
   }
 }
+.modal-info__text{
+
+  max-width: 287px;
+  margin-bottom: 14px;
+
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+  }
+
+}
+
 
 .modal-info__title {
   margin-bottom: 4px;
@@ -162,14 +173,26 @@
   text-transform: uppercase;
   color: inherit;
   transition: color var(--cubic-bezier), background-color var(--cubic-bezier),
-    transform var(--cubic-bezier), opacity var(--cubic-bezier);
+  transform var(--cubic-bezier), opacity var(--cubic-bezier);
 
   &:hover,
   &:focus {
     color: --color-light-theme;
     background-color: var(--color-brand);
   }
+
+  @media screen and (min-width: 768px) {
+      width: 100%;
+      padding: 20px 0;
+  }
 }
+
+.modal__remove-btn {
+  margin-bottom: 8px;
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
 
 
 .modal__remobe-btn-message {
@@ -192,4 +215,12 @@
       font-size: 12px;
       line-height: calc(14 / 12);
   }
+}
+
+.modal__add-btn.visually-hidden,
+.modal__remove-btn-wrapper.visually-hidden {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
