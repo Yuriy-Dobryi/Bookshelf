@@ -8,12 +8,8 @@ import bookshopImage1 from '../../images/card/bookShop-desktop.png';
 import bookshopImage2 from '../../images/card/bookShop-desktop.png';
 import sprite from '../../images/sprite.svg';
 
-
-
 export async function openCardModal(selectedBook) {
-  // selectedBook це уже вибрана книга користувачем зі всіма властивостями які тобі потрібні, просто зайди на сайт і подивись https://books-backend.p.goit.global/api-docs/#/Books/get_books__id_
-console.log(selectedBook)
-const { book_image, title, author, description, buy_links } = selectedBook;
+  const { book_image, title, author, description, buy_links } = selectedBook;
 
   const modalCard = basicLightbox.create(
     `
@@ -68,11 +64,19 @@ const { book_image, title, author, description, buy_links } = selectedBook;
    `,
 
     {
-      onShow: () => document.addEventListener('keydown', onEscapeClick),
-      onClose: () => document.removeEventListener('keydown', onEscapeClick),
+      onShow: () => {
+        document.addEventListener('keydown', onEscapeClick)
+        document.addEventListener('click', onBackDropClick);
+      },
+      onClose: () => {
+        document.removeEventListener('click', onBackDropClick)
+        document.removeEventListener('keydown', onEscapeClick);
+        closeBtn.removeEventListener('click', onCloseBtn);
+      },
       closable: false,
     }
   );
+
 
   function onEscapeClick({ code }) {
     if (code === 'Escape') {
@@ -80,12 +84,19 @@ const { book_image, title, author, description, buy_links } = selectedBook;
     }
   };
 
+  function onBackDropClick(e) {
+    if (!e.target.closest('.modal-info')) {
+      modalCard.close();
+    }
+  }
+
   modalCard.show();
-
-
+  const closeBtn = document.querySelector('.modal__close-btn');
+  closeBtn.addEventListener('click', onCloseBtn);
+  function onCloseBtn() {
+    modalCard.close();
+  }
 };
-
-
 
 function addBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
