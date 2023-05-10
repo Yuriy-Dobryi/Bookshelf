@@ -1,3 +1,5 @@
+import './switcher.js';
+
 const mobileMenuBtn = document.querySelector('[data-mobile-menu-btn]');
 const mobileMenu = document.querySelector('[data-mobile-menu]');
 const body = document.querySelector('body');

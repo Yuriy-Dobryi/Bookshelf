@@ -5,35 +5,37 @@
   --title-font: 'DM Sans';
   --category-font: 'DM Sans';
 }
-
-.books-container :nth-of-type(n + 2) {
-  display: none;
+.books-list {
 }
 .books-list-title {
-  padding-bottom: 40px;
-  font-family: var(--title-font);
+  font-family: var(--font-main);
   font-style: normal;
   font-weight: 700;
-  font-size: 48px;
-  line-height: 1.08;
-}
-.category-section {
+  font-size: 32px;
+  line-height: 1, 19;
   padding-top: 40px;
+  padding-bottom: 40px;
 }
-.category-section h2 {
-  height: 18px;
-  font-family: var(--category-font);
+.span-books-list-title {
+  color: var(--color-brand);
+}
+.books-list-title-fo-all-categori {
+  font-family: var(--font-main);
   font-style: normal;
   font-size: 14px;
   line-height: 1.29;
   text-transform: uppercase;
   font-weight: 400;
   color: var(--h2-font-color);
+  padding-bottom: 18px;
+}
+
+.category-section {
+  // padding-top: 40px;
 }
 
 .books-container {
   display: block;
-  padding-top: 18px;
 }
 .book-image {
   display: block;
@@ -51,15 +53,19 @@
   height: 18px;
   font-size: 16px;
   font-weight: 700;
-  font-family: var(--category-font);
+  font-family: var(--font-main);
   font-style: normal;
   line-height: 1.125;
   text-transform: uppercase;
 }
+body.dark .book-title {
+  color: var(--color-light-theme);
+}
 
 .book-autor {
   height: 14px;
-  font-family: var(--category-font);
+  overflow: hidden;
+  font-family: var(--font-main);
   font-size: 12px;
   font-style: italic;
   line-height: 1.17;
@@ -67,6 +73,9 @@
   color: #b4afaf;
 }
 
+body.dark .book-autor {
+  color: var(--color-light-theme);
+}
 .category-books-button {
   display: block;
   margin-left: auto;
@@ -79,11 +88,17 @@
   font-weight: 700;
   line-height: 1.29;
 }
-
+body.dark .category-books-button {
+  color: var(--color-light-theme);
+}
 @media screen and (min-width: 768px) {
   .category-section {
-    height: 510px;
     width: 704px;
+    padding-bottom: 40px;
+  }
+  .books-list-title {
+    font-size: 48px;
+    line-height: 1, 08;
   }
 
   .books-container {
@@ -92,13 +107,6 @@
     grid-auto-rows: minmax(335px, auto);
     grid-column-gap: 24px;
     grid-row-gap: 40px;
-  }
-
-  .books-container :nth-of-type(n + 2) {
-    display: block;
-  }
-  .books-container :nth-of-type(n + 4) {
-    display: none;
   }
 
   .book-image {
@@ -114,8 +122,8 @@
 
 @media screen and (min-width: 1440px) {
   .category-section {
-    height: 448px;
     width: 996px;
+    padding-bottom: 40px;
   }
   .books-container {
     display: grid;
@@ -127,8 +135,5 @@
   .book-image {
     height: 256px;
     width: 180px;
-  }
-  .books-container :nth-of-type(n + 4) {
-    display: block;
   }
 }

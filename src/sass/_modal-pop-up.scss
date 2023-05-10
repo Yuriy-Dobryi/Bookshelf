@@ -77,31 +77,50 @@
 }
 
 .modal-pop__container {
-  width: 100%;
-  gap: 24px;
-  margin-bottom: 40px;
-  display: flex;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
 }
+}
+
 .modal-info__image {
   margin-bottom: 14px;
+
   width: 287px;
   height: 408px;
+
   border-radius: 8px;
   object-fit: cover;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    width: 192px;
-    height: 281px;
-    margin-bottom: 0;
+      width: 192px;
+      height: 281px;
+      margin-bottom: 0;
   }
 }
 
 .modal-info-box {
   @media screen and (min-width: 768px) {
-    width: 280px;
+      width: 280px;
   }
 }
+.modal-info__text{
+
+  max-width: 287px;
+  margin-bottom: 14px;
+
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+  }
+
+}
+
 
 .modal-info__title {
   margin-bottom: 4px;
@@ -154,11 +173,54 @@
   text-transform: uppercase;
   color: inherit;
   transition: color var(--cubic-bezier), background-color var(--cubic-bezier),
-    transform var(--cubic-bezier), opacity var(--cubic-bezier);
+  transform var(--cubic-bezier), opacity var(--cubic-bezier);
 
   &:hover,
   &:focus {
     color: --color-light-theme;
     background-color: var(--color-brand);
   }
+
+  @media screen and (min-width: 768px) {
+      width: 100%;
+      padding: 20px 0;
+  }
+}
+
+.modal__remove-btn {
+  margin-bottom: 8px;
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+
+
+.modal__remobe-btn-message {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 242px;
+
+  font-size: 10px;
+  line-height: calc(12 / 10);
+  text-align: center;
+
+  color: var(--color-dark-theme);
+
+  @media screen and (min-width: 768px) {
+      max-width: 324px;
+      padding: 0;
+
+      font-size: 12px;
+      line-height: calc(14 / 12);
+  }
+}
+
+.modal__add-btn.visually-hidden,
+.modal__remove-btn-wrapper.visually-hidden {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }

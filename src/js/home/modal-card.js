@@ -1,11 +1,12 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import amazonImage1 from '../../images/card/amazon-desktop.png';
-import amazonImage2 from '../../images/card/amazon-desktop@2x.png';
-import appleImage1 from '../../images/card/book-desktop.png';
-import appleImage2 from '../../images/card/bookOpen-desktop@2x.png';
-import bookshopImage1 from '../../images/card/bookShop-desktop.png';
-import bookshopImage2 from '../../images/card/bookShop-desktop.png';
+
+import amazonImage from '../../images/card/amazon.png';
+import amazonImage_2x from '../../images/card/amazon@2x.png';
+import appleImage from '../../images/card/apple.png';
+import appleImage_2x from '../../images/card/apple@2x.png';
+import bookshopImage from '../../images/card/bookShop.png';
+import bookshopImage_2x from '../../images/card/bookShop.png';
 import sprite from '../../images/sprite.svg';
 
 export async function openCardModal(selectedBook) {
@@ -20,7 +21,7 @@ export async function openCardModal(selectedBook) {
     </svg>
   </button>
     <div class="modal-pop__container">
-    <img class="modal-info__image" src="${book_image}" alt="${title}" />
+    <img class="modal__img" src="${book_image}" alt="${title}" />
       <div class="modal-info__box">
         <h2 class="modal-info__title">${title}</h2>
         <p class="modal-info__author">${author}</p>
@@ -28,20 +29,20 @@ export async function openCardModal(selectedBook) {
         <ul class="modal-info__list">
           <li>
             <a class="modal-info__link" href="${buy_links[0].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
-              <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="amazon" width="62"
-              height="19" />
+              <img src="${amazonImage}"
+                srcset="${amazonImage_2x} 2x" alt="Amazon shop" width="62" height="19" />
             </a>
           </li>
           <li>
             <a class="modal-info__link" href="${buy_links[1].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
-              <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="apple-books" width="33"
-              height="32" />
+              <img src="${appleImage}"
+                srcset="${appleImage_2x} 2x" alt="Apple shop" width="33" height="32" />
             </a>
           </li>
           <li>
             <a class="modal-info__link" href="${buy_links[4].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
-              <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="bookshop"  width="38"
-              height="36"/>
+              <img src="${bookshopImage}"
+                srcset="${bookshopImage_2x} 2x" alt="Book shop" width="38" height="36" />
             </a>
           </li>
         </ul>
@@ -50,8 +51,8 @@ export async function openCardModal(selectedBook) {
     <button class="modal__add-btn modal__add-btn-js" type="submit">
     add to shopping list
 </button>
-<div class="modal__remove-btn-wrapper modal__remove-block-js">
-    <button class="modal__remove-btn modal__remove-btn-js" type="submit">
+<div class="modal__remove-btn-wrapper modal__remove-block-js visually-hidden">
+    <button class="modal__remove-btn modal__remove-btn-js " type="submit">
         remove from the shopping list
     </button>
     <p class="modal__remobe-btn-message">
@@ -59,44 +60,58 @@ export async function openCardModal(selectedBook) {
     delete, press the button “Remove from the shopping list”.
     </p>
     </div>
-
-</div>
-   `,
-
+</div>`,
     {
       onShow: () => {
-        document.addEventListener('keydown', onEscapeClick)
+        document.addEventListener('keydown', onEscapeClick);
         document.addEventListener('click', onBackDropClick);
       },
       onClose: () => {
-        document.removeEventListener('click', onBackDropClick)
+        document.removeEventListener('click', onBackDropClick);
         document.removeEventListener('keydown', onEscapeClick);
-        closeBtn.removeEventListener('click', onCloseBtn);
       },
       closable: false,
     }
   );
 
-
   function onEscapeClick({ code }) {
     if (code === 'Escape') {
       modalCard.close();
     }
-  };
+  }
 
-  function onBackDropClick(e) {
-    if (!e.target.closest('.modal-info')) {
+  function onBackDropClick({ target }) {
+    if (!target.closest('.modal-info')) {
       modalCard.close();
     }
   }
 
   modalCard.show();
+
   const closeBtn = document.querySelector('.modal__close-btn');
   closeBtn.addEventListener('click', onCloseBtn);
+
   function onCloseBtn() {
     modalCard.close();
   }
-};
+
+  const addBookBtnRef = document.querySelector('.modal__add-btn');
+  const removeBookBtnRef = document.querySelector('.modal__remove-btn-wrapper');
+
+  function onAddBookBtn() {
+    addBookInLocalStorage(selectedBook);
+    removeBookBtnRef.classList.remove('visually-hidden');
+    addBookBtnRef.classList.add('visually-hidden');
+  }
+  function onRemoveBookBtn() {
+    removeBookInLocalStorage(selectedBook);
+    addBookBtnRef.classList.remove('visually-hidden');
+    removeBookBtnRef.classList.add('visually-hidden');
+  }
+
+  addBookBtnRef.addEventListener('click', onAddBookBtn);
+  removeBookBtnRef.addEventListener('click', onRemoveBookBtn);
+}
 
 function addBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
@@ -105,11 +120,24 @@ function addBookInLocalStorage(selectedBook) {
     const bookExistsInList = bookList.find(
       book => book._id === selectedBook._id
     );
+
     if (!bookExistsInList) {
       bookList.push(selectedBook);
       localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(bookList));
     }
   } else {
     localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify([selectedBook]));
+  }
+}
+
+function removeBookInLocalStorage(selectedBook) {
+  const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
+
+  const updateBookList = bookList.filter(book => book._id !== selectedBook._id);
+
+  if (updateBookList.length === 0) {
+    localStorage.removeItem('SHOPPING-BOOKS-LIST');
+  } else {
+    localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(updateBookList));
   }
 }
