@@ -1,49 +1,3 @@
-// const listMarkup = foundations
-//   .map(({ title, url, img }) => {
-//     return `<li class="foundation">
-//         		<a href="${url}"><img src="${img}" alt="${title}"></a>
-//        		</li>`;
-//   })
-//   .join('');
-
-// foundationsList.innerHTML = listMarkup;
-
-// for (let i = 0; i < foundations.length; i++) {
-//   const foundation = foundations[i];
-
-//   const listItem = document.createElement('li');
-//   listItem.classList.add('foundation');
-
-//   const link = document.createElement('a');
-//   link.href = foundation.url;
-
-//   const img = document.createElement('img');
-//   img.src = foundation.img;
-//   img.alt = foundation.title;
-
-//   link.appendChild(img);
-//   listItem.appendChild(link);
-
-//   foundationsList.appendChild(listItem);
-// }
-
-// const supportRef = document.querySelector('.foundations-list');
-// console.log(supportRef);
-// function renderSupport() {
-//   const supportMarkup = foundations
-//     .map(company => {
-//       return `
-//     		<h1>Privet</h1>
-//     		<img src='${image}'>
-//     `;
-//     })
-//     .join('');
-
-//   supportRef.innerHTML = supportMarkup;
-// }
-
-// renderSupport();
-
 const list = document.querySelector('.foundations-list');
 const loadMoreButton = document.querySelector('.foundations-more');
 
@@ -81,4 +35,30 @@ function showItems(start, count) {
       span.textContent = '0' + (i + 1);
     }
   }
+
+  const lastItemIndex = start + count - 1;
+  if (lastItemIndex >= list.children.length - 1) {
+    loadMoreButton.classList.add('up');
+  } else {
+    loadMoreButton.classList.remove('up');
+  }
+
+  const visibleItems = document.querySelectorAll('.foundation.visible');
+  visibleItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.style.opacity = '0';
+      item.style.pointerEvents = 'none';
+    }, index * 50);
+  });
+
+  setTimeout(() => {
+    for (let i = start; i < start + count; i++) {
+      const item = list.children[i];
+      if (item) {
+        item.classList.add('visible');
+        item.style.opacity = '1';
+        item.style.pointerEvents = 'auto';
+      }
+    }
+  }, visibleItems.length * 50);
 }

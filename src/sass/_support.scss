@@ -4,6 +4,10 @@
   width: 335px;
   height: 352px;
 
+  padding-top: 24px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
@@ -15,14 +19,23 @@
 
 .support-title {
   display: flex;
-  justify-content: center;
-  padding-top: 24px;
 
   font-size: 28px;
+  font-weight: 700;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  // color: #ffffff;
 
-  text-align: center;
+  background: linear-gradient(-225deg, #76daff 0%, #fcd000 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  color: transparent;
+  animation: textclip 3s linear infinite;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .trident-icon {
@@ -37,15 +50,17 @@
   display: flex;
   margin-bottom: 20px;
   align-items: center;
+
+  opacity: 0;
+  transition: opacity 250ms var(--cubic-bezier);
 }
 
-.hidden {
+.foundation.hidden {
   display: none;
 }
 
 .foundation-counter {
   margin-right: 16px;
-  margin-left: 40px;
 
   font-size: 14px;
 
@@ -53,6 +68,7 @@
 }
 
 .foundation-icon {
+  height: 32px;
   filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7500%)
     hue-rotate(134deg) brightness(118%) contrast(100%);
 }
@@ -64,7 +80,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(180deg);
+  transform: translate(-20px, -20px) rotate(180deg);
 
   margin-left: auto;
   margin-right: auto;
@@ -77,17 +93,33 @@
   cursor: pointer;
   fill: #4f2ee8;
   transform: rotate(180deg);
+  transition: transform 500ms var(--cubic-bezier);
+}
+
+.foundations-more.up {
+  transform: translate(-20px, -20px) rotate(0deg);
 }
 
 .support.is-hide {
   display: none;
 }
 
-@media screen and (min-width: 375px) {}
+@media screen and (min-width: 375px) {
+}
 
 @media screen and (min-width: 768px) {
   .support {
     height: 472px;
+
+    padding-bottom: 14px;
+  }
+
+  .foundations-more {
+    transform: translate(-14px, -14px) rotate(180deg);
+  }
+
+  .foundations-more.up {
+    transform: translate(-14px, -14px) rotate(0deg);
   }
 }
 
@@ -95,5 +127,15 @@
   .support {
     width: 356px;
     height: 490px;
+
+    padding-bottom: 24px;
+  }
+
+  .foundations-more {
+    transform: translate(-24px, -24px) rotate(180deg);
+  }
+
+  .foundations-more.up {
+    transform: translate(-24px, -24px) rotate(0deg);
   }
 }
