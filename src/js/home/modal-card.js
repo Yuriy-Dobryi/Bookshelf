@@ -103,17 +103,10 @@ export async function openCardModal(selectedBook) {
 
     if (bookList) {
       const bookExistsInList = bookList.find(book => book._id === selectedBook._id);
-
       if (bookExistsInList) {
         addBookBtnRef.classList.add('visually-hidden');
         removeBookBtnRef.classList.remove('visually-hidden');
-      } else {
-        removeBookBtnRef.classList.add('visually-hidden');
-        addBookBtnRef.classList.remove('visually-hidden');
       }
-    } else {
-      removeBookBtnRef.classList.add('visually-hidden');
-      addBookBtnRef.classList.remove('visually-hidden');
     }
   }
   setBtnsStateByLocalStorage();
