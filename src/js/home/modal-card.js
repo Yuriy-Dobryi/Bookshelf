@@ -50,8 +50,8 @@ export async function openCardModal(selectedBook) {
     <button class="modal__add-btn modal__add-btn-js" type="submit">
     add to shopping list
 </button>
-<div class="modal__remove-btn-wrapper modal__remove-block-js">
-    <button class="modal__remove-btn modal__remove-btn-js" type="submit">
+<div class="modal__remove-btn-wrapper modal__remove-block-js visually-hidden">
+    <button class="modal__remove-btn modal__remove-btn-js " type="submit">
         remove from the shopping list
     </button>
     <p class="modal__remobe-btn-message">
@@ -98,6 +98,7 @@ export async function openCardModal(selectedBook) {
   }
 };
 
+
 function addBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
@@ -105,11 +106,27 @@ function addBookInLocalStorage(selectedBook) {
     const bookExistsInList = bookList.find(
       book => book._id === selectedBook._id
     );
+
+
     if (!bookExistsInList) {
       bookList.push(selectedBook);
       localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(bookList));
+
     }
   } else {
     localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify([selectedBook]));
   }
+const addBtn= document.querySelector('.modal__add-btn');
+const removeBlock=document.querySelector('.modal__remove-btn-wrapper');
+
+
+
+addBtn.addEventListener('click', addBtnClick);
+
+function addBtnClick(){
+  addBookInLocalStorage(selectedBook);
+  addBtn.classList.add('visually-hidden');
+  removeBlock.classList.remove('visually-hidden');
+};
+
 }
