@@ -40,6 +40,11 @@ body.dark .categories-list::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+.categories-item:hover {
+  cursor: pointer;
+  color: var(--color-brand);
+}
+
 body.dark .categories-list {
   color: rgba(255, 255, 255, 0.6);
 }
