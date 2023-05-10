@@ -1,46 +1,17 @@
-.switcher {
+.slider {
   position: relative;
-  display: inline-block;
   width: 40px;
   height: 24px;
+  display: flex;
+  align-items: center;
 }
 
-.switcher input {
+input[type="checkbox"] {
+  visibility: hidden;
   display: none;
 }
 
-.slider::before {
-  position: absolute;
-  content: "";
-  width: 18px;
-  height: 18px;
-  left: 1px;
-  top: 3px;
-  background-color: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: left 250ms var(--cubic-bezier);
-  border-radius: 50%;
-}
-
-.slider::after {
-  content: '';
-  width: 40px;
-  height: 20px;
-  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
-}
-
-input:checked+.slider::before {
-  left: 21px;
-  top: 3px;
-}
-
-input:checked+.slider::after {
+input[type="checkbox"]:checked+.slider::before {
   content: '';
   width: 40px;
   height: 20px;
@@ -53,10 +24,45 @@ input:checked+.slider::after {
   background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
 }
 
-// .sun {
-//   background: url(../images/menu-header/sun.png);
-// }
+.slider::after {
+  position: absolute;
+  cursor: pointer;
+  content: "";
+  width: 18px;
+  height: 18px;
+  left: 1px;
+  top: 3px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: left 250ms var(--cubic-bezier);
+  border-radius: 50%;
+}
 
-// .moon {
-//   background: url(../images/menu-header/moon.png);
-// }
+.slider::before {
+  content: '';
+  width: 40px;
+  height: 20px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+}
+
+input[type="checkbox"]:checked+.slider::after {
+  left: 21px;
+  top: 3px;
+}
+
+.icon-theme-sun {
+  fill: yellow;
+  position: absolute;
+  margin-left: 3px;
+}
+.icon-theme-moon {
+  fill: yellow; 
+  position: absolute;
+  margin-left: 25px;
+}
