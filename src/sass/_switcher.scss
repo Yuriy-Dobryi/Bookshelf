@@ -9,7 +9,7 @@
   display: none;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   width: 18px;
