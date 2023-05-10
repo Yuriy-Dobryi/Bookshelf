@@ -1,18 +1,19 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-import amazonImage1 from '../../images/card/amazon-desktop.png';
-import amazonImage2 from '../../images/card/amazon-desktop@2x.png';
-import appleImage1 from '../../images/card/book-desktop.png';
-import appleImage2 from '../../images/card/bookOpen-desktop@2x.png';
-import bookshopImage1 from '../../images/card/bookShop-desktop.png';
-import bookshopImage2 from '../../images/card/bookShop-desktop.png';
+import amazonImage from '../../images/card/amazon.png';
+import amazonImage_2x from '../../images/card/amazon@2x.png';
+import appleImage from '../../images/card/apple.png';
+import appleImage_2x from '../../images/card/apple@2x.png';
+import bookshopImage from '../../images/card/bookShop.png';
+import bookshopImage_2x from '../../images/card/bookShop.png';
 import sprite from '../../images/sprite.svg';
 
 export async function openCardModal(selectedBook) {
   const { book_image, title, author, description, buy_links } = selectedBook;
 
-  const modalCard = basicLightbox.create(`
+  const modalCard = basicLightbox.create(
+    `
     <div class="modal-info">
     <button type="button" class="modal__close-btn">
     <svg class="modal__close-icon" width="8" height="8">
@@ -28,20 +29,20 @@ export async function openCardModal(selectedBook) {
         <ul class="modal-info__list">
           <li>
             <a class="modal-info__link" href="${buy_links[0].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
-              <img srcset="${amazonImage1} 1x, ${amazonImage2} 2x" src="${amazonImage1}" alt="amazon" width="62"
-              height="19" />
+              <img src="${amazonImage}"
+                srcset="${amazonImage_2x} 2x" alt="Amazon shop" width="62" height="19" />
             </a>
           </li>
           <li>
             <a class="modal-info__link" href="${buy_links[1].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
-              <img srcset="${appleImage1} 1x, ${appleImage2} 2x" src="${appleImage1}" alt="apple-books" width="33"
-              height="32" />
+              <img src="${appleImage}"
+                srcset="${appleImage_2x} 2x" alt="Apple shop" width="33" height="32" />
             </a>
           </li>
           <li>
             <a class="modal-info__link" href="${buy_links[4].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Bookshop">
-              <img srcset="${bookshopImage1} 1x, ${bookshopImage2} 2x" src="${bookshopImage1}" alt="bookshop"  width="38"
-              height="36"/>
+              <img src="${bookshopImage}"
+                srcset="${bookshopImage_2x} 2x" alt="Book shop" width="38" height="36" />
             </a>
           </li>
         </ul>
