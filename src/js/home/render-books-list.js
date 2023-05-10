@@ -26,6 +26,7 @@ export const renderBooksList = async () => {
         return `  
         <div class="book-card" data-book-id="${book._id}">
           <img loading="lazy" src="${book.book_image}" alt="${book.title}" class="book-image">
+          <div class="book-card-hover"><p>quick view</p></div>
           <div class="book-info">
             <h3 class="book-title">${book.title}</h3>
             <p class="book-autor">${book.author}</p>
@@ -84,8 +85,9 @@ export const renderBooksListCategori = async category => {
   const books = booksListCategori
     .map(book => {
       return `
-    <div class="book-card" data-book-id="${book._id}">
+    <div class="book-card book-card-wrapper" data-book-id="${book._id}">
         <img loading="lazy" src="${book.book_image}" alt="${book.title}" class="book-image">
+        <div class="book-card-hover"><p>quick view</p></div>
         <div class="book-info">
           <h3 class="book-title">${book.title}</h3>
           <p class="book-autor">${book.author}</p>
