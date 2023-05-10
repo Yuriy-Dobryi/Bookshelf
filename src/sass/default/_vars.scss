@@ -1,14 +1,12 @@
 :root {
-  --font-main: 'DM Sans';;
+  --font-main: 'DM Sans';
 
   --color-basic-text: #111111;
-  --color-brand: #4F2EE8;
-  --color-interactive: #EAC645;
-  --color-light-theme: #F6F6F6;
+  --color-brand: #4f2ee8;
+  --color-interactive: #eac645;
+  --color-light-theme: #f6f6f6;
   --color-dark-theme: #202024;
-  --gradient-checkbox:  linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
+  --gradient-checkbox: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
 
   --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
