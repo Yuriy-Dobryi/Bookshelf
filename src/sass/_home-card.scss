@@ -2,8 +2,6 @@
 
 :root {
   --h2-font-color: #b4afaf;
-  // --title-font: 'DM Sans';
-  // --category-font: 'DM Sans';
 }
 .books-list {
 }
@@ -29,11 +27,8 @@
   color: var(--h2-font-color);
   padding-bottom: 18px;
 }
-.books-list-title-fo-all-categori:nth-child(n + 3) {
+.category-section:nth-child(n + 3) {
   padding-top: 40px;
-}
-.category-section {
-  // padding-top: 40px;
 }
 
 .books-container {
@@ -96,7 +91,6 @@ body.dark .category-books-button {
 @media screen and (min-width: 768px) {
   .category-section {
     width: 704px;
-    padding-bottom: 40px;
   }
   .books-list-title {
     font-size: 48px;
@@ -125,7 +119,6 @@ body.dark .category-books-button {
 @media screen and (min-width: 1440px) {
   .category-section {
     width: 996px;
-    padding-bottom: 40px;
   }
   .books-container {
     display: grid;
