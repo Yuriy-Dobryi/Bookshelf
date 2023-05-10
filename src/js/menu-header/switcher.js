@@ -6,8 +6,11 @@ switherRef.addEventListener('change', () =>
 
 function setSwitcherByLocalStorage() {
   const savedSwitcherState = localStorage.getItem('THEME');
-  switherRef.checked =
-    savedSwitcherState === 'light' ? false : true;
+  if (savedSwitcherState === 'light') {
+    switherRef.checked = false;
+  } else if (savedSwitcherState === 'dark') {
+    switherRef.checked = true;
+  }
 }
 
 setSwitcherByLocalStorage();
