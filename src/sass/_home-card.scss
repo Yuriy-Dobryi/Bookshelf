@@ -2,8 +2,8 @@
 
 :root {
   --h2-font-color: #b4afaf;
-  --title-font: 'DM Sans';
-  --category-font: 'DM Sans';
+  // --title-font: 'DM Sans';
+  // --category-font: 'DM Sans';
 }
 .books-list {
 }
@@ -29,7 +29,9 @@
   color: var(--h2-font-color);
   padding-bottom: 18px;
 }
-
+.books-list-title-fo-all-categori:nth-child(n + 3) {
+  padding-top: 40px;
+}
 .category-section {
   // padding-top: 40px;
 }
