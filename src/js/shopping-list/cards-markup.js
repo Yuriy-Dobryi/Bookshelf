@@ -1,18 +1,17 @@
 import books from '../../images/book-logo/empty-logo.png';
 import books from '../../images/book-logo/empty-logo.png';
 
+import sprite from '../../images/sprite.svg';
 import amazonImage from '../../images/card/amazon.png';
 import amazonImage_2x from '../../images/card/amazon@2x.png';
 import appleImage from '../../images/card/apple.png';
 import appleImage_2x from '../../images/card/apple@2x.png';
 import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop@2x.png';
-import sprite from '../../images/sprite.svg';
-
-const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
 const shoppingListRef = document.querySelector('.shopping-list-books');
 const emptyShoppingWrapper = document.querySelector('.empty-shopping-wrapper');
+const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
 export function renderShoppingList() {
   if (bookList) {

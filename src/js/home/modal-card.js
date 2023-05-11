@@ -1,20 +1,26 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
+import alternativeImage from '../../images/book-logo/alternative-book.png';
+import sprite from '../../images/sprite.svg';
 import amazonImage from '../../images/card/amazon.png';
 import amazonImage_2x from '../../images/card/amazon@2x.png';
 import appleImage from '../../images/card/apple.png';
 import appleImage_2x from '../../images/card/apple@2x.png';
 import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop.png';
-import sprite from '../../images/sprite.svg';
 
 export async function openCardModal(selectedBook) {
-  const { book_image, title, description, author, buy_links } = selectedBook;
+  console.log(selectedBook);
+  const { book_image, title, author, buy_links } = selectedBook;
   if (!selectedBook.description) {
     selectedBook.description =
       'Unfortunately, there is no description for this book at the moment.';
   }
+  if (!selectedBook.book_image) {
+    selectedBook.book_image = alternativeImage;
+  }
+
   const modalCard = basicLightbox.create(
     `
     <div class="modal-info">
@@ -82,7 +88,6 @@ export async function openCardModal(selectedBook) {
       modalCard.close();
     }
   }
-
   function onBackDropClick({ target }) {
     if (!target.closest('.modal-info')) {
       modalCard.close();
@@ -106,6 +111,7 @@ export async function openCardModal(selectedBook) {
 
     if (bookList) {
       const bookExistsInList = bookList.find(book => book._id === selectedBook._id);
+
       if (bookExistsInList) {
         addBookBtnRef.classList.add('visually-hidden');
         removeBookBtnRef.classList.remove('visually-hidden');
@@ -146,7 +152,6 @@ function addBookInLocalStorage(selectedBook) {
 
 function removeBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
-
   const updateBookList = bookList.filter(book => book._id !== selectedBook._id);
 
   if (updateBookList.length === 0) {
