@@ -255,7 +255,7 @@
   width: 20px;
   height: 20px;
   margin-left: 4px;
-  stroke: #ffffff;
+  // stroke: #ffffff;
 }
 
 .log-out-mobile-btn {
@@ -344,6 +344,7 @@ body.mobile-menu-open {
     transition: color 250ms var(--cubic-bezier);
     cursor: url(../images/cursor.svg),
         default;
+    
   }
 
   .navigation-link {
@@ -521,7 +522,7 @@ body.mobile-menu-open {
   color: #ffffff;
 }
 .dark-theme .logo-shop {
-  stroke: #ffffff; 
+  fill: #ffffff; 
 }
 .dark-them .icon-burger-menu {
   fill: #ffffff;
