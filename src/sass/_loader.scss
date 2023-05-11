@@ -13,6 +13,10 @@
     z-index: 9999;
     background-color: #fff;
 }
+
+.dark-theme #loader-wrapper {
+    background-color: var(--color-dark-theme);
+}
 #loader {
     display: block;
     position: absolute;
