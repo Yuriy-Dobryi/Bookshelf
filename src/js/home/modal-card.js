@@ -9,6 +9,8 @@ import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop.png';
 import sprite from '../../images/sprite.svg';
 
+import { removeBookInLocalStorage } from '../home/modal-card-function/removeBook_modal.js';
+
 export async function openCardModal(selectedBook) {
   const { book_image, title, author, description, buy_links } = selectedBook;
 
