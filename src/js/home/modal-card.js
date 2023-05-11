@@ -9,11 +9,12 @@ import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop.png';
 import sprite from '../../images/sprite.svg';
 
-// import { removeBookInLocalStorage } from '../home/modal-card-function/removeBook_modal.js';
-
 export async function openCardModal(selectedBook) {
-  const { book_image, title, author, description, buy_links } = selectedBook;
-
+  const { book_image, title, description, author, buy_links } = selectedBook;
+  if (!selectedBook.description) {
+    selectedBook.description =
+      'Unfortunately, there is no description for this book at the moment.';
+  }
   const modalCard = basicLightbox.create(
     `
     <div class="modal-info">
@@ -27,7 +28,7 @@ export async function openCardModal(selectedBook) {
       <div class="modal-info__box">
         <h2 class="modal-info__title">${title}</h2>
         <p class="modal-info__author">${author}</p>
-        <p class="modal-info__text">${description}</p>
+        <p class="modal-info__text">${selectedBook.description}</p>
         <ul class="modal-info__list">
           <li>
             <a class="modal-info__link" href="${buy_links[0].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">

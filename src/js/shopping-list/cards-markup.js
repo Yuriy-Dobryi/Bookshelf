@@ -74,8 +74,7 @@ function renderShoppingCardList(bookList) {
             </a>
             </div>
       </li>
-      `
-    )
+      `)
     .join();
 }
 
