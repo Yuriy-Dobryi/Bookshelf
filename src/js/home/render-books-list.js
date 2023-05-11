@@ -108,5 +108,5 @@ export const renderBooksListCategori = async category => {
 
   booksList.insertAdjacentHTML('beforeend', booksSection);
 
-  booksList.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 };
