@@ -12,7 +12,6 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 1.19;
-  padding-top: 40px;
   padding-bottom: 40px;
 }
 .dark-theme .books-list-title {
@@ -41,8 +40,12 @@
 .book-card-wrapper:not(:first-of-type) {
   padding-top: 40px;
 }
+.book-card {
+  position: relative;
+}
 .book-card-hover {
   position: relative;
+  width: 100%;
 }
 .book-card-hover p {
   position: absolute;
@@ -63,21 +66,28 @@
   border-radius: 0px 0px 8px 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transform: translateY(70px);
-  visibility: hidden;
+  // visibility: hidden;
   transition: transform 500ms var(--cubic-bezier), visibility 200ms;
 }
 .book-card:hover p,
 .book-card:focus p {
   transform: translateY(0);
   visibility: visible;
-  transition: transform 250ms var(--cubic-bezier), visibility 150ms;
+  transition: transform 250ms var(--cubic-bezier), visibility 150ms, scale(1.2);
+  // transform: scale(1.2);
 }
 .book-image {
   display: block;
+  position: relative;
   height: 485px;
   width: 335px;
   border-color: #e0e0e0;
   border-radius: 8px;
+  transition: transform 0.3s ease-out;
+}
+.book-card:hover .book-image,
+.book-card:focus .book-image {
+  transform: scale(1.2);
 }
 .book-info {
   padding-top: 14px;
@@ -123,6 +133,11 @@
   font-weight: 700;
   line-height: 1.29;
   cursor: pointer;
+  transition: transform 0.2s var(--cubic-bezier);
+}
+.category-books-button:hover,
+.category-books-button:focus {
+  transform: scale(1.2);
 }
 .dark-theme .category-books-button {
   color: var(--color-light-theme);
@@ -173,6 +188,3 @@
     width: 180px;
   }
 }
-
-// @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap');
-// --font-main: 'DM Sans', sans-serif;
