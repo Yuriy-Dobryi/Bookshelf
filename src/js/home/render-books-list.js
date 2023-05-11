@@ -2,6 +2,8 @@ import FetchCategoriesAll from './service-categories-all';
 import { checkCurrentCategory } from './render-categories-list';
 import { openCardModal } from './modal-card';
 
+const loader = document.getElementById('loader-wrapper');
+
 const viewportWidth = window.innerWidth;
 let booksPerCategory = 5;
 
@@ -16,6 +18,7 @@ const fetchApiCategories = new FetchCategoriesAll();
 const booksList = document.querySelector('.books-list');
 
 export const renderBooksList = async () => {
+  loader.classList.remove('visually-hidden');
   const categoriesTop = await fetchApiCategories.getCategoriesTop();
   booksList.innerHTML = '';
 
@@ -48,21 +51,23 @@ export const renderBooksList = async () => {
     booksList.insertAdjacentHTML('beforeend', categorySection);
   });
 
+  loader.classList.add('visually-hidden');
   const mainTitle = `<h2 class="books-list-title">Best Sellers <span class="span-books-list-title">Books</span></h2>`;
   booksList.insertAdjacentHTML('afterbegin', mainTitle);
-
+  
   booksList.addEventListener('click', async event => {
     const bookCard = event.target.closest('.book-card');
     if (bookCard) {
       const bookId = bookCard.dataset.bookId;
       const selectedBook = await fetchApiCategories.getBookId(bookId);
-
+      
       openCardModal(selectedBook);
     }
   });
-
+  
   booksList.addEventListener('click', async event => {
     if (event.target.classList.contains('category-books-button')) {
+    loader.classList.remove('visually-hidden');
       const category = event.target.dataset.categoryBooks;
       renderBooksListCategori(category);
       checkCurrentCategory(category);
@@ -73,6 +78,7 @@ export const renderBooksList = async () => {
 renderBooksList();
 
 export const renderBooksListCategori = async category => {
+  loader.classList.remove('visually-hidden');
   const booksListCategori = await fetchApiCategories.getCategoriesSelected(
     category
   );
@@ -105,8 +111,9 @@ export const renderBooksListCategori = async category => {
       </div>
     </section>
   `;
-
+  
   booksList.insertAdjacentHTML('beforeend', booksSection);
+  loader.classList.add('visually-hidden');
 
   window.scrollTo(0, 0);
 };
