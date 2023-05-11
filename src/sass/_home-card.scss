@@ -5,7 +5,8 @@
   --title-font: 'DM Sans';
   --category-font: 'DM Sans';
 }
-.books-list {
+.book-card {
+  cursor: pointer;
 }
 .books-list-title {
   font-family: var(--font-main);
