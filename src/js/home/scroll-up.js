@@ -19,5 +19,3 @@ function updateMoveTopBtnDisplayByScroll() {
 
 window.addEventListener('scroll', updateMoveTopBtnDisplayByScroll);
 scrollUpBtn.addEventListener("click", scrollToTop);
-
-

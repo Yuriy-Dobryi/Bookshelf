@@ -3,9 +3,8 @@ const switherRef = document.querySelector('#switcher');
 const savedSwitcherState = localStorage.getItem('THEME');
 
 switherRef.addEventListener('change', () => {
-  localStorage.setItem('THEME',
-    switherRef.checked === true ? `dark` : 'light');
-    bodyRef.classList.toggle('dark-theme');
+  localStorage.setItem('THEME', switherRef.checked === true ? `dark` : 'light');
+  bodyRef.classList.toggle('dark-theme');
 });
 
 function setPageThemeColorByLocalStorage() {
