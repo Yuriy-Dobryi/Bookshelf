@@ -6,13 +6,13 @@ import amazonImage_2x from '../../images/card/amazon@2x.png';
 import appleImage from '../../images/card/apple.png';
 import appleImage_2x from '../../images/card/apple@2x.png';
 import bookshopImage from '../../images/card/bookShop.png';
-import bookshopImage_2x from '../../images/card/bookShop.png';
+import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 import sprite from '../../images/sprite.svg';
 
 const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
 const shoppingListRef = document.querySelector('.shopping-list-books');
-const emptyShoppingList = document.querySelector('.empty-shopping-list');
+const emptyShoppingWrapper = document.querySelector('.empty-shopping-wrapper');
 
 export function renderShoppingList() {
   if (bookList) {
@@ -80,7 +80,7 @@ function renderShoppingCardList(bookList) {
 }
 
 function renderEmptyShoppingList() {
-  emptyShoppingList.innerHTML = `
+  emptyShoppingWrapper.innerHTML = `
   <p class="empty-shopping-text">This page is empty, add some books and proceed to order.</p>
   <img class="empty-shopping-books-img" src="${books}" alt="Alternative Books, when shopping list is empty">
   `;
