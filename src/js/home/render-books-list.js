@@ -67,6 +67,7 @@ export const renderBooksList = async () => {
   
   booksList.addEventListener('click', async event => {
     if (event.target.classList.contains('category-books-button')) {
+    loader.classList.remove('visually-hidden');
       const category = event.target.dataset.categoryBooks;
       renderBooksListCategori(category);
       checkCurrentCategory(category);
@@ -77,6 +78,7 @@ export const renderBooksList = async () => {
 renderBooksList();
 
 export const renderBooksListCategori = async category => {
+  loader.classList.remove('visually-hidden');
   const booksListCategori = await fetchApiCategories.getCategoriesSelected(
     category
   );
@@ -109,8 +111,9 @@ export const renderBooksListCategori = async category => {
       </div>
     </section>
   `;
-
+  
   booksList.insertAdjacentHTML('beforeend', booksSection);
+  loader.classList.add('visually-hidden');
 
   window.scrollTo(0, 0);
 };
