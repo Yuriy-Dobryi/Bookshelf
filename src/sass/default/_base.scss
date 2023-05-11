@@ -1,10 +1,13 @@
 body {
   margin: 0 auto;
-  font-family: var(--font-main);
+  font-family: 'DM Sans';
   font-weight: 400;
   font-size: 16px;
   color: var(--color-basic-text);
   cursor: url(../images/cursor.svg), default;
+}
+main {
+  background-color: var(--color-light-theme);
 }
 
 p,
