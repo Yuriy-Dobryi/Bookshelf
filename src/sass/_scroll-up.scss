@@ -24,3 +24,12 @@
     width: 54px;
     height: 54px;
 }
+
+#scrollUpBtn .icon-scroll-up {
+    transition: transform 0.2s var(--cubic-bezier);
+}
+
+#scrollUpBtn:hover .icon-scroll-up {
+    transform: scale(1.2);
+    transition: transform 0.2s var(--cubic-bezier);
+}
