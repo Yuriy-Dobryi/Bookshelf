@@ -1,4 +1,13 @@
 import books from '../../images/book-logo/empty-logo.png';
+import books from '../../images/book-logo/empty-logo.png';
+
+import amazonImage from '../../images/card/amazon.png';
+import amazonImage_2x from '../../images/card/amazon@2x.png';
+import appleImage from '../../images/card/apple.png';
+import appleImage_2x from '../../images/card/apple@2x.png';
+import bookshopImage from '../../images/card/bookShop.png';
+import bookshopImage_2x from '../../images/card/bookShop.png';
+import sprite from '../../images/sprite.svg';
 
 const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
@@ -18,6 +27,7 @@ function renderShoppingCardList(bookList) {
     .map(
       ({
         book_image,
+        title,
         book_image_width,
         book_image_height,
         list_name,
@@ -26,15 +36,13 @@ function renderShoppingCardList(bookList) {
         author,
       }) => `
       <li class="galleryitem">
-          <a class="gallerylink" href="large-image.jpg">
               <img
-              class="gallery__image"
+              class="galleryimage"
               src="${book_image}"
               width="${book_image_width}"
               height="${book_image_height}"
-              alt=""
+              alt="${title}"
               />
-          </a>
           <div class="div_card">
           <h2 class="title_card">${list_name}</h2>
           <p class="card_min-title">${age_group}</p>
@@ -43,27 +51,28 @@ function renderShoppingCardList(bookList) {
           </div>
           <div class="div_svg-card">
           <a href="#">
-            <img src="./src/card/amazon-desktop.png"
-                srcset="./src/card/amazon-desktop.png 1x, ./src/card/amazon-desktop@2x.png 2x"
-                alt="">
+            <img src="${amazonImage}"
+                srcset="${amazonImage_2x} 2x"
+                alt="Amazon shop" />
             </a>
             <a href="#">
-            <img src="./src/card/book-desktop.png"
-                srcset="./src/card/book-desktop.png 1x, ./src/card/book-desktop@2x.png 2x"
-                alt="">
+            <img src="${appleImage}"
+                srcset="${appleImage_2x} 2x"
+                alt="Apple shop" />
             </a>
             <a href="#">
-            <img src="./src/card/bookShop-desktop.png"
-                srcset="./src/card/bookShop-desktop.png 1x, ./src/card/bookShop-desktop@2x.png 2x"
-                alt="">
+            <img src="${bookshopImage}"
+                srcset="${bookshopImage_2x} 2x"
+                alt="Book shop" />
             </a>
+            </div>
             <div class="div-card_close">
             <a href="#">
-            <svg class="" width="34" height="34">
-                <use href="#"></use>
+            <svg width="34" height="34">
+                <use href="${sprite}#icon-trash"></use>
             </svg>
             </a>
-            </div>  
+            </div>
       </li>
       `
     )
