@@ -15,7 +15,7 @@
   padding-top: 40px;
   padding-bottom: 40px;
 }
-.dark-theme .books-list-title {
+.dark-theme.books-list-title {
   color: var(--color-light-theme);
 }
 .span-books-list-title {
@@ -43,7 +43,6 @@
 }
 .book-card-hover {
   position: relative;
-  overflow: hidden;
 }
 .book-card-hover p {
   position: absolute;
@@ -65,13 +64,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transform: translateY(70px);
   visibility: hidden;
-  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 200ms;
+  transition: transform 500ms var(--cubic-bezier), visibility 200ms;
 }
 .book-card:hover p,
 .book-card:focus p {
   transform: translateY(0);
   visibility: visible;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms;
+  transition: transform 250ms var(--cubic-bezier), visibility 150ms;
 }
 .book-image {
   display: block;
