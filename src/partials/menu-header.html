@@ -22,7 +22,14 @@
       <div class="header-button-box">
         <label class="switcher">
           <input type="checkbox" id="switcher">
-          <span class="slider"></span>
+          <span class="slider">
+            <svg class="icon-theme-sun" width="15" height="15">
+              <use class="icon-sun" href="./images/sprite.svg#icon-sun-color-icon"></use>
+            </svg>
+            <svg class="icon-theme-moon" width="12" height="12">
+              <use class="icon-moon" href="./images/sprite.svg#icon-moon-line-icon"></use>>
+            </svg>
+          </span>
         </label>
         <button type="button" class="mobile-menu-open-btn" data-mobile-menu-btn>
           <svg class="burger-icon" width="28" height="28">
@@ -30,31 +37,53 @@
             <use class="mobile-menu-close-icon" href="./images/sprite.svg#icon-close"></use>
           </svg>
         </button>
-        <button type="button" class="sing-up-btn " data-modal-open-sign>
-          Sing up
-          <svg class="sing-up-icon">
+        <div class="sign-up-pc">
+        <button type="button" class="sign-up-btn " data-modal-open-sign>
+          Sign up
+          <svg class="sign-up-icon">
             <use href="./images/sprite.svg#icon-right-arrow"></use>
           </svg>
         </button>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class="mobile-menu-container" data-mobile-menu>
-    <div class="sign-up-mobile">
-      <button type="button" class="sign-up-btn-mobile " data-modal-open-sing>Sing up<svg class="sign-up-icon">
-          <use href="#"></use>
-        </svg></button>
-    </div>
-    <!-- <div class="authorizated-mobile-menu-box">
-      <div class="authorizated-mobile-menu-user">
+        </div>
+        <div class="authorizated-pc">
+      <button type="button" class="authorizated-btn">
         <div class="user-icon-box">
           <svg class="user-icon">
             <use href="./images/menu-header/user-logo.png"></use>
           </svg>
         </div>
         <p class="user-name">Stephen</p>
-      </div> -->
+        <svg class="user-icon-arrow">
+              <use href="./images/menu-header/user-logo.png"></use>
+            </svg>
+          </button>
+          <button type="button" class="log-out-mobile-btn visually-hidden">
+      Log out
+      <svg class="sign-up-icon">
+        <use href="./images/sprite.svg#icon-right-arrow"></use>
+      </svg>
+    </button> 
+    </div>
+  </div>
+    </div>
+  </div>
+  </div>
+  <div class="mobile-menu-container is-hidden" data-mobile-menu>
+    <div class="sign-up-mobile">
+      <button type="button" class="sign-up-btn-mobile " data-modal-open-sign>Sign up<svg class="sign-up-icon">
+          <use href="./images/sprite.svg#icon-right-arrow"></use>
+        </svg></button>
+    </div>
+    
+    <div class="authorizated-mobile-menu-box">
+      <div class="authorizated-mobile-menu-user is-hidden ">
+        <div class="user-icon-box is-hidden">
+          <svg class="user-icon">
+            <use href="./images/menu-header/user-logo.png"></use>
+          </svg>
+        </div>
+        <p class="user-name">Stephen</p>
+      </div>
     <ul class="mobile-navigation-list">
       <li class="mobile-navigation-item active">
         <a class="mobile-navigation-link" href="/src/index.html">Home</a>
@@ -68,7 +97,7 @@
     </ul>
     <button type="button" class="log-out-mobile-btn">
       Log out
-      <svg class="sing-up-icon">
+      <svg class="sign-up-icon">
         <use href="./images/sprite.svg#icon-right-arrow"></use>
       </svg>
     </button>
