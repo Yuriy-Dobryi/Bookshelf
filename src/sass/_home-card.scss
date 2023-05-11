@@ -15,7 +15,7 @@
   padding-top: 40px;
   padding-bottom: 40px;
 }
-.dark-theme.books-list-title {
+.dark-theme .books-list-title {
   color: var(--color-light-theme);
 }
 .span-books-list-title {
@@ -93,7 +93,7 @@
   line-height: 1.125;
   text-transform: uppercase;
 }
-.dark-theme.book-title {
+.dark-theme .book-title {
   color: var(--color-light-theme);
 }
 
@@ -108,7 +108,7 @@
   color: #b4afaf;
 }
 
-.dark-theme.book-autor {
+.dark-theme .book-autor {
   color: var(--color-light-theme);
 }
 .category-books-button {
@@ -124,7 +124,7 @@
   line-height: 1.29;
   cursor: pointer;
 }
-.dark-theme.category-books-button {
+.dark-theme .category-books-button {
   color: var(--color-light-theme);
 }
 @media screen and (min-width: 768px) {
