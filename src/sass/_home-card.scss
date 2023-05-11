@@ -7,7 +7,6 @@
   cursor: pointer;
 }
 .books-list-title {
-  font-family: var(--font-main);
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -21,7 +20,6 @@
   color: var(--color-brand);
 }
 .books-list-title-fo-all-categori {
-  font-family: var(--font-main);
   font-style: normal;
   font-size: 14px;
   line-height: 1.29;
@@ -53,7 +51,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: var(--font-main);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
@@ -93,7 +90,6 @@
   height: 18px;
   font-size: 16px;
   font-weight: 700;
-  font-family: var(--font-main);
   font-style: normal;
   line-height: 1.125;
   text-transform: uppercase;
@@ -105,7 +101,6 @@
 .book-autor {
   height: 14px;
   overflow: hidden;
-  font-family: var(--font-main);
   font-size: 12px;
   font-style: italic;
   line-height: 1.17;
