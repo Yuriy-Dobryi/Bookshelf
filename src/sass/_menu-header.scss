@@ -26,7 +26,8 @@
 }
 
 .logo-link {
-  cursor: pointer;
+  cursor: url(../images/cursor.svg),
+      default;
   display: flex;
   gap: 8px;
 }
@@ -68,7 +69,8 @@
   height: 28px;
   background-color: #ffffff;
   border: none;
-  cursor: pointer;
+  cursor: url(../images/cursor.svg),
+      default;
 }
 
 .burger-icon {
@@ -90,7 +92,8 @@
   width: 40px;
   height: 28px;
   margin: 0;
-  cursor: pointer;
+  cursor: url(../images/cursor.svg),
+      default;
 }
 
 .theme-switcher-input::before {
@@ -203,7 +206,8 @@ display: flex;
   border-radius: 18px;
   color: #ffffff;
   background-color: var(--color-brand);
-  cursor: pointer;
+  cursor: url(../images/cursor.svg),
+      default;
 }
 
 .sign-up-icon {
@@ -269,6 +273,11 @@ display: flex;
   margin-top: auto;
   margin-bottom: auto;
 }
+.mobile-navigation-list.is-hidden {
+  opacity: 0;
+    visibility: hidden;
+  pointer-events: none;
+}
 
 .mobile-navigation-item {
   font-weight: 500;
@@ -292,7 +301,7 @@ display: flex;
   width: 20px;
   height: 20px;
   margin-left: 4px;
-  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .log-out-mobile-btn {
@@ -313,7 +322,8 @@ display: flex;
   background: #ffffff;
   margin-top: auto;
   margin-bottom: 20px;
-  cursor: pointer;
+  cursor: url(../images/cursor.svg),
+      default;
 }
 .log-out-mobile-btn.is-hidden {
 visibility: hidden;
@@ -370,8 +380,7 @@ body.mobile-menu-open {
   }
 
   .navigation-item {
-    position: relative;
-    
+    position: relative; 
     font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
@@ -379,7 +388,8 @@ body.mobile-menu-open {
     text-transform: uppercase;
     color: var(--color-basic-text);
     transition: color 250ms var(--cubic-bezier);
-    cursor: pointer;
+    cursor: url(../images/cursor.svg),
+        default;
   }
 
   .navigation-link {
@@ -446,7 +456,8 @@ body.mobile-menu-open {
     border-radius: 18px;
     color: #ffffff;
     background-color: var(--color-brand);
-    cursor: pointer;
+    cursor: url(../images/cursor.svg),
+        default;
     transition: transform 250ms var(--cubic-bezier);
   }
 
@@ -468,7 +479,8 @@ body.mobile-menu-open {
     border-radius: 36px;
     background-color: var(--color-brand);
     transition: box-shadow 250ms var(--cubic-bezier);
-    cursor: pointer;
+    cursor: url(../images/cursor.svg),
+        default;
   }
   .authorizated-btn:hover,
   .authorizated-btn:focus {
@@ -492,7 +504,8 @@ body.mobile-menu-open {
     border-radius: 18px;
     color: var(--color-basic-text);
     background-color: #ffffff;
-    cursor: pointer;
+    cursor: url(../images/cursor.svg),
+        default;
   }
 
 
@@ -531,29 +544,43 @@ body.mobile-menu-open {
     border-radius: 18px;
     color: #ffffff;
     background-color: var(--color-brand);
-    cursor: pointer;
+    cursor: url(../images/cursor.svg),
+        default;
   }
   
 }
 // dark theme
-.dark-theme.header {
+.dark-theme .header {
   border: 1.5px solid #FFFFFF;
   order-radius: 0px 0px 8px 8px;
   background-color: #111111;
 }
+.dark-theme .header-container {
+  background-color: #111111;
+}
 
 .dark-theme .logo-icon {
-  fill: #ffffff;
+  stroke: #ffffff;
 }
 .dark-theme .navigation-link {
   color: #ffffff;
 }
 .dark-theme .logo-shop {
-  fill: #ffffff; 
+  stroke: #ffffff; 
 }
 .dark-them .icon-burger-menu {
   fill: #ffffff;
 }
 .dark-theme .icon-close {
   fill: #ffffff;
+}
+.dark-theme .navigation-link {
+  background-color: #111111;
+}
+.dark-theme .active {
+  padding: 8px 16px;
+    font-weight: 700;
+    background-color: var(--color-interactive);
+    color: var(--color-basic-text);
+    border-radius: 36px;
 }
