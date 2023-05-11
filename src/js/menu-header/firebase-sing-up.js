@@ -38,7 +38,7 @@ function onPostUser(e) {
     .then(userCredential => {
       // Signed in
       const user = userCredential.user;
-      user.displayName = userName;
+      user.displayName = userName.value;
 
       console.log(user);
     })
