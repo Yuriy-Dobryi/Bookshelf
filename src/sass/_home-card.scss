@@ -2,8 +2,6 @@
 
 :root {
   --h2-font-color: #b4afaf;
-  --title-font: 'DM Sans';
-  --category-font: 'DM Sans';
 }
 .book-card {
   cursor: pointer;
@@ -13,8 +11,9 @@
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  line-height: 1.19;
-  margin-bottom: 40px;
+  line-height: 1, 19;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 .span-books-list-title {
   color: var(--color-brand);
@@ -29,9 +28,8 @@
   color: var(--h2-font-color);
   padding-bottom: 18px;
 }
-
-.category-section {
-  // padding-top: 40px;
+.category-section:nth-child(n + 3) {
+  padding-top: 40px;
 }
 
 .books-container {
@@ -132,8 +130,9 @@ body.dark .category-books-button {
   }
   .books-list-title {
     font-size: 48px;
-    line-height: 1.08;
+    line-height: 1, 08;
   }
+
   .books-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -141,11 +140,14 @@ body.dark .category-books-button {
     grid-column-gap: 24px;
     grid-row-gap: 40px;
   }
-
+  .book-card-wrapper:not(:first-of-type) {
+    padding-top: 0px;
+  }
   .book-image {
     height: 316px;
     width: 218px;
   }
+
   .category-books-button {
     display: block;
     margin-top: 20px;
