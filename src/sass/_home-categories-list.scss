@@ -32,7 +32,7 @@
   border-radius: 12px;
 }
 
-body.dark .categories-list::-webkit-scrollbar-thumb {
+.dark-theme .categories-list::-webkit-scrollbar-thumb {
   background: rgba(17, 17, 17, 0.6);
 }
 
@@ -41,16 +41,19 @@ body.dark .categories-list::-webkit-scrollbar-thumb {
 }
 
 .categories-item:hover {
-  cursor: pointer;
   color: var(--color-brand);
 }
 
-body.dark .categories-list {
+.dark-theme .categories-item:hover {
+  color: var(--color-interactive);
+}
+
+.dark-theme .categories-list {
   color: rgba(255, 255, 255, 0.6);
 }
 
-body.dark .current-category {
-  color: #eac645;
+.dark-theme .current-category {
+  color: var(--color-interactive);
 }
 
 @media screen and (min-width: 375px) {
