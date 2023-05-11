@@ -43,37 +43,36 @@ function renderShoppingCardList(bookList) {
               alt="${title}"
               />
           <div class="div_card">
-          <h2 class="title_card">${list_name}</h2>
-          <p class="card_min-title">${age_group}</p>
+          <h2 class="title_card">${title}</h2>
+          <p class="category-book">${list_name}</p>
           <p class="card_text">${description}</p>
           <p class="card_avter">${author}</p>
           </div>
-          <div class="div_svg-card">
+          <div class="list-shops">
           <a href="#">
-            <img src="${amazonImage}"
+            <img class="img-amazon" src="${amazonImage}"
                 srcset="${amazonImage_2x} 2x"
                 alt="Amazon shop" />
             </a>
             <a href="#">
-            <img src="${appleImage}"
+            <img class="img-apple" src="${appleImage}"
                 srcset="${appleImage_2x} 2x"
                 alt="Apple shop" />
             </a>
-            <a href="#">
+            <a class=imgn-bookshop" href="#">
             <img src="${bookshopImage}"
                 srcset="${bookshopImage_2x} 2x"
                 alt="Book shop" />
             </a>
             </div>
-            <div class="div-card_close">
-            <a href="#">
-            <svg width="34" height="34">
+            <button class="btn-card_close">
+            <svg class="btn-svg-close">
                 <use href="${sprite}#icon-trash"></use>
             </svg>
-            </a>
-            </div>
+            </button>
       </li>
-      `)
+      `
+    )
     .join();
 }
 

@@ -1,113 +1,135 @@
-/* card */
-.gallery__item {
+// /* card */
+
+.galleryitem {
   position: relative;
   display: flex;
-  align-items: center;
-
-  padding: 24px 24px;
-
+  // align-items: flex-end;
+  justify-content: space-around;
+  padding: 14px;
+  width: 335px;
+  height: 170px;
   background: #ffffff;
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 }
+.dark-theme .galleryitem {
+  background-color: #111111;
+  color: var(--color-light-theme);
+}
+.galleryimage {
+  display: block;
+  width: 100px;
+  height: 142px;
+  border-radius: 8px;
+}
 
 .div_card {
-  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding-left: 14px;
 }
 
 .title_card {
-  margin-bottom: 4px;
-  font-family: 'DM Sans';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 18px;
-  /* identical to box height, or 112% */
-
+  line-height: 1.125;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-
-  color: #111111;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  // color: var(--color-basic-text);
 }
-
-.card_min-title {
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 400;
+.dark-theme .title_card {
+  color: var(--color-light-theme);
+}
+.category-book {
   font-size: 12px;
-  line-height: 14px;
-  /* identical to box height, or 117% */
-
+  line-height: 1, 17;
   letter-spacing: 0.03em;
-
   color: #b4afaf;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 5;
-  flex-grow: 0;
-  z-index: 5;
+}
+.btn-svg-close {
+  width: 28px;
+  height: 28px;
+  // fill: white;
+}
+.btn-card_close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
 }
 
 .card_text {
-  margin-top: 14px;
-  margin-bottom: 48px;
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 18px;
-  /* or 129% */
-
+  font-style: normal;
+  line-height: 1.29;
   letter-spacing: -0.04em;
-
-  color: #111111;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  z-index: 1;
 }
 
 .card_avter {
-  font-family: 'DM Sans';
+  // align-self: flex-end;
+  justify-self: end;
   font-style: italic;
-  font-weight: 400;
   font-size: 12px;
-  line-height: 14px;
-  /* identical to box height, or 117% */
-
+  line-height: 1.125;
   letter-spacing: -0.04em;
-
   color: #b4afaf;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .div_svg-card {
   display: flex;
-  position: absolute;
-  bottom: 40px;
-  right: 0;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 16px;
+  gap: 8px;
 }
 
-.div-card_close {
+.btn-card_close {
   position: absolute;
-  top: -140px;
-  right: 20px;
-  background-color: blue;
-  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  right: 14px;
+  top: 14px;
+
+  background: #4f2ee8;
+}
+
+.list-shops {
+  // position: absolute;
+  display: block;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 8px;
+  width: 80px;
+  height: 16px;
+}
+@media screen and (min-width: 768px) {
+  .galleryitem {
+    padding: 24px;
+    width: 704px;
+    height: 213px;
+  }
+  .galleryimage {
+    width: 116px;
+    height: 165px;
+    border-radius: 8px;
+  }
+  .btn-card_close {
+    width: 34px;
+    height: 34px;
+    right: 24px;
+    top: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .galleryitem {
+    width: 996px;
+    height: 213px;
+  }
 }
