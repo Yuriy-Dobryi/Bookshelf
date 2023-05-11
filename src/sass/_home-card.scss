@@ -66,15 +66,14 @@
   border-radius: 0px 0px 8px 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transform: translateY(70px);
-  // visibility: hidden;
+  visibility: hidden;
   transition: transform 500ms var(--cubic-bezier), visibility 200ms;
 }
 .book-card:hover p,
 .book-card:focus p {
   transform: translateY(0);
   visibility: visible;
-  transition: transform 250ms var(--cubic-bezier), visibility 150ms, scale(1.2);
-  // transform: scale(1.2);
+  transition: transform 250ms var(--cubic-bezier), visibility 150ms;
 }
 .book-image {
   display: block;
@@ -84,10 +83,6 @@
   border-color: #e0e0e0;
   border-radius: 8px;
   transition: transform 0.3s ease-out;
-}
-.book-card:hover .book-image,
-.book-card:focus .book-image {
-  transform: scale(1.2);
 }
 .book-info {
   padding-top: 14px;
