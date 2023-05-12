@@ -7,3 +7,26 @@
     margin-left: 40px;
   }
 }
+
+
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  // position: absolute;
+  // bottom: 40px;
+}
+.pagination-item {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 5px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.dark-theme .pagination-item {
+  background-color: black;
+  color: #ffffff;
+  border-color: #ffffff;
+}
