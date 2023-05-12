@@ -49,10 +49,14 @@
   color: #b4afaf;
 }
 .btn-svg-close {
-  width: 28px;
-  height: 28px;
-  // fill: white;
+  width: 16px;
+  height: 16px;
+  fill: var(--color-brand);
+
+
 }
+
+
 .btn-card_close {
   display: flex;
   justify-content: center;
@@ -60,6 +64,7 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
+background-color:var(--color-dark-theme)
 }
 
 .card_text {
@@ -94,7 +99,6 @@
   height: 28px;
   right: 14px;
   top: 14px;
-
   background: #4f2ee8;
 }
 
@@ -118,8 +122,14 @@
   width: 16px;
   height: 16px;
 }
+
+.shop-link{
+  filter: grayscale(1);
+
+}
+
 .img-bookshop {
-  width: 16px;
+ width: 16px;
   height: 16px;
 }
 @media screen and (min-width: 768px) {
@@ -140,7 +150,13 @@
     right: 24px;
     top: 24px;
   }
+  .btn-svg-close {
+    width: 18px;
+    height: 18px;}
+
+
   .list-shops {
+
     gap: 16px;
     align-items: center;
     right: 24px;
