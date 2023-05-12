@@ -7,6 +7,10 @@ body {
   cursor: url(../images/cursor.svg), default;
 }
 
+header{
+  background-color: var(--color-light-theme);
+}
+
 main {
   background-color: var(--color-light-theme);
 }
