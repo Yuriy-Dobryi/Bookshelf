@@ -7,7 +7,7 @@ import {
 
 // Відкриття-закриття модалки
 const modalAuth = document.querySelector('.modal-sing-in');
-const openModal = document.querySelector('.login-button');
+const openModal = document.querySelector('[data-modal-open-sign]');
 const closeModal = document.querySelector('.sing-in-close');
 
 closeModal.addEventListener('click', () => (modalAuth.style.display = 'none'));
@@ -23,9 +23,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
 // Initialize Firebase Authentication and get a reference to the service
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const authForm = document.querySelector('.sing-in-form');
@@ -56,8 +55,12 @@ function onGetUser(e) {
 onAuthStateChanged(auth, user => {
   if (user) {
     const uid = user.uid;
-    console.log(user);
+    logIn();
   } else {
     console.log('User не знайдений');
   }
 });
+
+function logIn() {
+  openModal.innerText = 'Log-out -->';
+}

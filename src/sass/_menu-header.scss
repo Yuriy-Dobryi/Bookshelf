@@ -50,7 +50,10 @@
 }
 
 .sing-up-btn {
-  display: none;
+  display: flex;
+  padding: 14px;
+  background: #4f2ee8;
+  border-radius: 36px;
 }
 
 .authorizated-btn {
@@ -144,7 +147,12 @@
   top: 60px;
   width: 100%;
 
-  background: url('../images/menu-header/books-mobile.png'), radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+  background: url('../images/menu-header/books-mobile.png'),
+    radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: contain;
@@ -160,10 +168,15 @@
 }
 
 @media (min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .mobile-menu-container {
-    background: url('../images/menu-header/books-mobile@2x.png'), radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+    background: url('../images/menu-header/books-mobile@2x.png'),
+      radial-gradient(
+        183.6% 183.01% at 59.76% -23.42%,
+        #4f2ee8 18.03%,
+        #ffffff 100%
+      );
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
@@ -318,9 +331,8 @@ body.mobile-menu-open {
   overflow: hidden;
 }
 
-// Tablet 
+// Tablet
 @media screen and (min-width: 768px) {
-
   .mobile-menu-container,
   .mobile-menu-container.is-open {
     display: none;
