@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   // align-items: flex-end;
-  justify-content: space-around;
+  // justify-content: space-around;
   padding: 14px;
   width: 335px;
   height: 170px;
@@ -99,13 +99,27 @@
 }
 
 .list-shops {
-  // position: absolute;
-  display: block;
+  position: absolute;
+  display: flex;
   justify-content: center;
   align-items: flex-end;
   padding: 0px;
   gap: 8px;
-  width: 80px;
+  right: 14px;
+  bottom: 14px;
+  // width: 80px;
+  // height: 16px;
+}
+.img-amazon {
+  width: 32px;
+  height: 11px;
+}
+.img-apple {
+  width: 16px;
+  height: 16px;
+}
+.img-bookshop {
+  width: 16px;
   height: 16px;
 }
 @media screen and (min-width: 768px) {
@@ -119,11 +133,31 @@
     height: 165px;
     border-radius: 8px;
   }
+
   .btn-card_close {
     width: 34px;
     height: 34px;
     right: 24px;
     top: 24px;
+  }
+  .list-shops {
+    gap: 16px;
+    right: 24px;
+    bottom: 24px;
+    // width: 80px;
+    // height: 16px;
+  }
+  .img-amazon {
+    width: 48px;
+    height: 15px;
+  }
+  .img-apple {
+    width: 28px;
+    height: 27px;
+  }
+  .img-bookshop {
+    width: 32px;
+    height: 30px;
   }
 }
 

@@ -59,7 +59,7 @@ function renderShoppingCardList(bookList) {
                 srcset="${appleImage_2x} 2x"
                 alt="Apple shop" />
             </a>
-            <a class=imgn-bookshop" href="#">
+            <a class="img-bookshop" href="#">
             <img src="${bookshopImage}"
                 srcset="${bookshopImage_2x} 2x"
                 alt="Book shop" />
