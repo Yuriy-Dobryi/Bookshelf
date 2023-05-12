@@ -11,7 +11,6 @@ import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop.png';
 
 export async function openCardModal(selectedBook) {
-  console.log(selectedBook);
   const { book_image, title, author, buy_links } = selectedBook;
   if (!selectedBook.description) {
     selectedBook.description =

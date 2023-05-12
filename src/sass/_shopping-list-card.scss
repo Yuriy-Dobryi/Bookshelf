@@ -52,8 +52,6 @@
   width: 16px;
   height: 16px;
   fill: var(--color-brand);
-
-
 }
 
 
@@ -63,8 +61,10 @@
   align-items: center;
   width: 28px;
   height: 28px;
+  border: none;
   border-radius: 50%;
-background-color:var(--color-dark-theme)
+  background-color: var(--color-dark-theme);
+  cursor: pointer;
 }
 
 .card_text {
