@@ -10,43 +10,11 @@ import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 
 const shoppingListRef = document.querySelector('.shopping-list-books');
 const emptyShoppingWrapper = document.querySelector('.empty-shopping-wrapper');
-const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
-
-const viewportWidth = window.innerWidth;
-let booksPerPage = 3;
-if (viewportWidth < 768) {
-  booksPerPage = 4;
-};
-
-function paginate(array, page_size, page_number) {
-  return array.slice((page_number - 1) * page_size, page_number * page_size);
-};
 
 export function renderShoppingList() {
+  const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
   if (bookList) {
-    let currentPage = 1;
-    const totalPages = Math.ceil(bookList.length / booksPerPage);
-
-    function renderPage(page) {
-      const booksToRender = paginate(bookList, booksPerPage, page);
-      renderShoppingCardList(booksToRender);
-    }
-
-    const paginationWrapper = document.querySelector('.pagination-wrapper');
-    paginationWrapper.innerHTML = '';
-
-    renderPage(currentPage);
-
-    for (let i = 1; i <= totalPages; i++) {
-    const paginationItem = document.createElement('button');
-    paginationItem.classList.add('pagination-item');
-    paginationItem.textContent = i;
-    paginationItem.addEventListener('click', () => {
-      currentPage = i;
-      renderPage(currentPage);
-    });
-    paginationWrapper.appendChild(paginationItem);
-  }
+    renderShoppingCardList(bookList);
   } else {
     renderEmptyShoppingList();
   }
