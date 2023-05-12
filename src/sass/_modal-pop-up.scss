@@ -13,6 +13,8 @@
 }
 
 .modal-info {
+margin-left: auto;
+margin-right: auto;
   width: 100%;
   padding: 40px 24px;
   background-color: var(--color-light-theme);
@@ -79,6 +81,8 @@
 
 .modal__close-icon {
   stroke: currentColor;
+  width: 24px;
+  height: 24px;
 
   @media screen and (min-width: 768px) {
     width: 24px;
@@ -182,7 +186,7 @@ background-color:var(--color-light-theme);
 }
 
 .dark-theme .modal-info__author{
-  color: var(--color-light-theme);}
+  color:#B4AFAF;}
 
 
 .modal-info__list {
@@ -201,10 +205,12 @@ background-color:var(--color-light-theme);
   }
 }
 .dark-theme .modal-info__link {
-  filter: invert(1);
+  filter: invert(3);
+  mix-blend-mode: luminosity;
+
   transition: filter 250ms var(--cubic-bezier);
   &:hover {
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0px 3px 3px rgba(255, 250, 250, 0.89));
   }
 
 }
