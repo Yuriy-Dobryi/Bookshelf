@@ -1,7 +1,6 @@
-import books from '../../images/book-logo/empty-logo.png';
-import books from '../../images/book-logo/empty-logo.png';
-
 import sprite from '../../images/sprite.svg';
+import books from '../../images/book-logo/empty-logo.png';
+import books from '../../images/book-logo/empty-logo.png';
 import amazonImage from '../../images/card/amazon.png';
 import amazonImage_2x from '../../images/card/amazon@2x.png';
 import appleImage from '../../images/card/apple.png';
@@ -11,43 +10,11 @@ import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 
 const shoppingListRef = document.querySelector('.shopping-list-books');
 const emptyShoppingWrapper = document.querySelector('.empty-shopping-wrapper');
-const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
-
-const viewportWidth = window.innerWidth;
-let booksPerPage = 3;
-if (viewportWidth > 768) {
-  booksPerPage = 4;
-};
-
-function paginate(array, page_size, page_number) {
-  return array.slice((page_number - 1) * page_size, page_number * page_size);
-};
 
 export function renderShoppingList() {
+  const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
   if (bookList) {
-    let currentPage = 1;
-    const totalPages = Math.ceil(bookList.length / booksPerPage);
-
-    function renderPage(page) {
-      const booksToRender = paginate(bookList, booksPerPage, page);
-      renderShoppingCardList(booksToRender);
-    }
-
-    const paginationWrapper = document.querySelector('.pagination-wrapper');
-    paginationWrapper.innerHTML = '';
-
-    renderPage(currentPage);
-
-    for (let i = 1; i <= totalPages; i++) {
-    const paginationItem = document.createElement('button');
-    paginationItem.classList.add('pagination-item');
-    paginationItem.textContent = i;
-    paginationItem.addEventListener('click', () => {
-      currentPage = i;
-      renderPage(currentPage);
-    });
-    paginationWrapper.appendChild(paginationItem);
-  }
+    renderShoppingCardList(bookList);
   } else {
     renderEmptyShoppingList();
   }
@@ -57,6 +24,7 @@ function renderShoppingCardList(bookList) {
   shoppingListRef.innerHTML = bookList
     .map(
       ({
+        _id,
         book_image,
         buy_links,
         title,
@@ -98,13 +66,12 @@ function renderShoppingCardList(bookList) {
                 alt="Book shop" />
             </a>
             </div>
-            <button class="btn-card_close">
+            <button class="btn-card_close" data-book-id="${_id}">
             <svg class="btn-svg-close">
                 <use href="${sprite}#icon-trash"></use>
             </svg>
             </button>
-      </li>
-      `
+      </li>`
     )
     .join('');
 }
@@ -125,5 +92,27 @@ function checkViewPortForSupportDisplay() {
   }
 }
 
+function removeBookInLocalStorage(bookList, bookId) {
+  const updateBookList = bookList.filter(book => book._id !== bookId);
+
+  if (updateBookList.length === 0) {
+    localStorage.removeItem('SHOPPING-BOOKS-LIST');
+  } else {
+    localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(updateBookList));
+  }
+}
+
 checkViewPortForSupportDisplay();
 renderShoppingList();
+
+shoppingListRef.addEventListener('click', ({ target }) => {
+  const bookCard = target.closest('.btn-card_close');
+  if (bookCard) {
+    const bookId = bookCard.dataset.bookId;
+    const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
+
+    removeBookInLocalStorage(bookList, bookId);
+    shoppingListRef.innerHTML = '';
+    renderShoppingList();
+  }
+});
