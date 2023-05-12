@@ -15,7 +15,7 @@ const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
 const viewportWidth = window.innerWidth;
 let booksPerPage = 3;
-if (viewportWidth > 768) {
+if (viewportWidth < 768) {
   booksPerPage = 4;
 };
 
