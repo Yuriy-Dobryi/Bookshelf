@@ -26,6 +26,7 @@ function renderShoppingCardList(bookList) {
     .map(
       ({
         book_image,
+        buy_links,
         title,
         book_image_width,
         book_image_height,
@@ -49,17 +50,17 @@ function renderShoppingCardList(bookList) {
           <p class="card_avter">${author}</p>
           </div>
           <div class="list-shops">
-          <a href="#">
+          <a class="shop-link"  href="${buy_links[0].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer">
             <img class="img-amazon" src="${amazonImage}"
                 srcset="${amazonImage_2x} 2x"
                 alt="Amazon shop" />
             </a>
-            <a href="#">
+            <a class="shop-link" href="${buy_links[1].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
             <img class="img-apple" src="${appleImage}"
                 srcset="${appleImage_2x} 2x"
                 alt="Apple shop" />
             </a>
-            <a class="img-bookshop" href="#">
+            <a class="shop-link" href="${buy_links[4].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer">
             <img src="${bookshopImage}"
                 srcset="${bookshopImage_2x} 2x"
                 alt="Book shop" />
