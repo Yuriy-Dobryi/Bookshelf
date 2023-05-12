@@ -55,13 +55,13 @@ function renderShoppingCardList(bookList) {
                 srcset="${amazonImage_2x} 2x"
                 alt="Amazon shop" />
             </a>
-            <a class="shop-link" href="${buy_links[1].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
+            <a class=" shop-link" href="${buy_links[1].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Apple-books">
             <img class="img-apple" src="${appleImage}"
                 srcset="${appleImage_2x} 2x"
                 alt="Apple shop" />
             </a>
             <a class="shop-link" href="${buy_links[4].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer">
-            <img src="${bookshopImage}"
+            <img class="img-bookshop" src="${bookshopImage}"
                 srcset="${bookshopImage_2x} 2x"
                 alt="Book shop" />
             </a>
