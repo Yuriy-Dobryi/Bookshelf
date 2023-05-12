@@ -7,6 +7,14 @@
   letter-spacing: -0.04em;
 }
 
+.dark-theme .shop {
+  color: #fff;
+}
+
+.list {
+  color: #4F2EE8;
+}
+
 .empty-shopping-wrapper {
   width: 265px;
   margin-left: auto;
@@ -23,11 +31,9 @@
   letter-spacing: -0.02em;
   text-align: center;
 }
-
-.dark-theme .empty-shopping-wrapper {
-  background-color: orange;
+.dark-theme .empty-shopping-text {
+  color: rgba(255, 255, 255, 0.6);
 }
-
 @media screen and (min-width: 768px) {
   .shopping-list-title._empty {
     width: 292px;

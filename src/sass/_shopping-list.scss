@@ -2,7 +2,7 @@
   .main-container {
     display: flex;
   }
-
+  
   .shopping-list__wrapper {
     margin-left: 40px;
   }
@@ -10,11 +10,10 @@
 
 
 
+
 .pagination-wrapper {
   display: flex;
   justify-content: center;
-  // position: absolute;
-  // bottom: 40px;
 }
 .pagination-item {
   width: 44px;
@@ -29,4 +28,8 @@
   background-color: black;
   color: #ffffff;
   border-color: #ffffff;
+}
+.main-container {
+  min-height: 1500px;
+
 }
