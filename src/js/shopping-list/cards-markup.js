@@ -74,7 +74,7 @@ function renderShoppingCardList(bookList) {
       </li>
       `
     )
-    .join();
+    .join('');
 }
 
 function renderEmptyShoppingList() {
