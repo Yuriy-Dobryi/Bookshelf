@@ -91,7 +91,7 @@
   font-size: 16px;
   font-weight: 700;
   font-style: normal;
-  line-height: 1.125;
+  line-height: 1.16;
   text-transform: uppercase;
 }
 .dark-theme .book-title {
@@ -99,18 +99,15 @@
 }
 
 .book-autor {
+  margin-top: 4px;
   height: 14px;
   overflow: hidden;
   font-size: 12px;
   font-style: italic;
   line-height: 1.17;
-  margin-top: 4px;
-  color: #b4afaf;
+  letter-spacing: -0.04em;
 }
 
-.dark-theme .book-autor {
-  color: var(--color-light-theme);
-}
 .category-books-button {
   display: block;
   margin-left: auto;
