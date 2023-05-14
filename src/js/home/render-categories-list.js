@@ -1,7 +1,7 @@
 // Модуль для створення розмітки списку категорій
 
 import FetchCategoriesAll from './service-categories-all';
-import { renderBooksList, renderBooksListCategori } from './render-books-list';
+import { renderBooksList, renderBooksListCategory } from './render-books-list';
 
 const fetchApiCategories = new FetchCategoriesAll();
 const categoriesList = document.querySelector('.categories-list');
@@ -30,7 +30,7 @@ const renderCategoriesList = async () => {
       return;
     }
     const category = e.target.dataset.categoryBooks;
-    renderBooksListCategori(category);
+    renderBooksListCategory(category);
   }
 };
 

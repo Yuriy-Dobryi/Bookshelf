@@ -12,10 +12,12 @@
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 }
+
 .dark-theme .galleryitem {
   background-color: #111111;
   color: var(--color-light-theme);
 }
+
 .galleryimage {
   display: block;
   width: 100px;
@@ -39,15 +41,18 @@
   text-transform: uppercase;
   // color: var(--color-basic-text);
 }
+
 .dark-theme .title_card {
   color: var(--color-light-theme);
 }
+
 .category-book {
   font-size: 12px;
   line-height: 1, 17;
   letter-spacing: 0.03em;
   color: #b4afaf;
 }
+
 .btn-svg-close {
   width: 16px;
   height: 16px;
@@ -114,30 +119,33 @@
   // width: 80px;
   // height: 16px;
 }
+
 .img-amazon {
   width: 32px;
   height: 11px;
 }
+
 .img-apple {
   width: 16px;
   height: 16px;
 }
 
-.shop-link{
+.shop-link {
   filter: grayscale(1);
 
 }
 
-.dark-theme .shop-link{
+.dark-theme .shop-link {
   filter: invert(3);
   mix-blend-mode: luminosity;
 
 }
 
 .img-bookshop {
- width: 16px;
+  width: 16px;
   height: 16px;
 }
+
 @media screen and (min-width: 768px) {
   .galleryitem {
     padding: 24px;
@@ -145,6 +153,7 @@
     height: 213px;
     margin-bottom: 20px;
   }
+
   .galleryimage {
     width: 116px;
     height: 165px;
@@ -157,9 +166,11 @@
     right: 24px;
     top: 24px;
   }
+
   .btn-svg-close {
     width: 18px;
-    height: 18px;}
+    height: 18px;
+  }
 
 
   .list-shops {
@@ -171,14 +182,17 @@
     // width: 80px;
     // height: 16px;
   }
+
   .img-amazon {
     width: 48px;
     height: 15px;
   }
+
   .img-apple {
     width: 28px;
     height: 27px;
   }
+
   .img-bookshop {
     width: 32px;
     height: 30px;

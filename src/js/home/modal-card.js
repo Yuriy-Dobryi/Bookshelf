@@ -34,7 +34,7 @@ export async function openCardModal(selectedBook) {
         <h2 class="modal-info__title">${title}</h2>
         <p class="modal-info__author">${author}</p>
         <p class="modal-info__text">${selectedBook.description}</p>
-        <ul class="modal-info__list">
+        <ul class="modal-info__shops">
           <li>
             <a class="modal-info__link" href="${buy_links[0].url}" target="_blank" crossorigin="anonymous"  rel="noopener noreferrer" aria-label="Amazon">
               <img src="${amazonImage}"
@@ -56,14 +56,14 @@ export async function openCardModal(selectedBook) {
         </ul>
       </div>
 </div>
-    <button class="modal__add-btn modal__add-btn-js" type="submit">
+    <button class="modal__add-btn modal__add-btn-js">
     add to shopping list
 </button>
-<div class="modal__remove-btn-wrapper modal__remove-block-js visually-hidden">
-    <button class="modal__remove-btn modal__remove-btn-js " type="submit">
+<div class="modal__remove-btn-wrapper visually-hidden">
+    <button class="modal__remove-btn">
         remove from the shopping list
     </button>
-    <p class="modal__remobe-btn-message">
+    <p class="modal__remove-btn-message">
         Сongratulations! You have added the book to the shopping list. To
     delete, press the button “Remove from the shopping list”.
     </p>
@@ -109,7 +109,9 @@ export async function openCardModal(selectedBook) {
     const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
     if (bookList) {
-      const bookExistsInList = bookList.find(book => book._id === selectedBook._id);
+      const bookExistsInList = bookList.find(
+        book => book._id === selectedBook._id
+      );
 
       if (bookExistsInList) {
         addBookBtnRef.classList.add('visually-hidden');
@@ -138,7 +140,9 @@ function addBookInLocalStorage(selectedBook) {
   const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 
   if (bookList) {
-    const bookExistsInList = bookList.find(book => book._id === selectedBook._id);
+    const bookExistsInList = bookList.find(
+      book => book._id === selectedBook._id
+    );
 
     if (!bookExistsInList) {
       bookList.push(selectedBook);

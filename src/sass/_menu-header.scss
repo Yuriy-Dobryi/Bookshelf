@@ -8,11 +8,6 @@
   outline: 1.5px solid var(--color-basic-text);
   border-radius: 0px 0px 8px 8px;
 }
-// .header-container.dark-theme {
-//   background-color: var(--color-basic-text);
-//   color: #ffffff;
-//   border: 1.5px solid #ffffff;
-// }
 
 .header-box {
   display: flex;
@@ -22,7 +17,7 @@
 
 .logo-link {
   cursor: url(../images/cursor.svg),
-      default;
+    default;
   display: flex;
   gap: 8px;
 }
@@ -55,8 +50,9 @@
 .log-out-btn {
   display: none;
 }
+
 .mobile-menu-container.is-hidden {
- display: none;
+  display: none;
 }
 
 .mobile-menu-open-btn {
@@ -65,7 +61,7 @@
   background-color: #ffffff;
   border: none;
   cursor: url(../images/cursor.svg),
-      default;
+    default;
 }
 
 .burger-icon {
@@ -89,6 +85,7 @@
 .navigation-main {
   display: none;
 }
+
 .sign-up-pc {
   display: none;
 }
@@ -109,12 +106,14 @@
   transition: transform 250ms var(--cubic-bezier);
   transform: translateY(-100%);
 }
+
 .mobile-menu-container.is-open {
   display: block;
   transform: translateY(0);
   width: 100%;
   height: 100%;
 }
+
 // @media screen and (min-width: 375px) {
 // .mobile-menu-container.is-open {
 //   width: 375px;
@@ -127,6 +126,7 @@
     background-size: cover;
   }
 }
+
 @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
@@ -146,7 +146,7 @@
   margin-top: 40px;
   margin-left: 20px;
   margin-bottom: 130px;
- 
+
   display: flex;
   justify-content: center;
 
@@ -161,7 +161,7 @@
   color: #ffffff;
   background-color: var(--color-brand);
   cursor: url(../images/cursor.svg),
-      default;
+    default;
 }
 
 .sign-up-icon {
@@ -183,11 +183,13 @@
   display: flex;
   align-items: center;
 }
+
 .authorizated-mobile-menu-user.is-hidden {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .user-icon-box {
   display: flex;
   justify-content: center;
@@ -212,6 +214,7 @@
   letter-spacing: -0.02em;
   color: #ffffff;
 }
+
 // .log-out-btn.is-hidden {
 //     opacity: 0;
 //     visibility: hidden;
@@ -227,9 +230,10 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+
 .mobile-navigation-list.is-hidden {
   opacity: 0;
-    visibility: hidden;
+  visibility: hidden;
   pointer-events: none;
 }
 
@@ -277,12 +281,13 @@
   margin-top: auto;
   margin-bottom: 20px;
   cursor: url(../images/cursor.svg),
-      default;
+    default;
 }
+
 .log-out-mobile-btn.is-hidden {
-visibility: hidden;
-opacity: 0;
-pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .log-out-mobile-btn .sign-up-icon {
@@ -334,7 +339,7 @@ body.mobile-menu-open {
   }
 
   .navigation-item {
-    position: relative; 
+    position: relative;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
@@ -343,8 +348,8 @@ body.mobile-menu-open {
     color: var(--color-basic-text);
     transition: color 250ms var(--cubic-bezier);
     cursor: url(../images/cursor.svg),
-        default;
-    
+      default;
+
   }
 
   .navigation-link {
@@ -355,35 +360,37 @@ body.mobile-menu-open {
     background-color: white;
     border-radius: 36px;
   }
-.active {
-  padding: 8px 16px;
-  font-weight: 700;
-  background-color: var(--color-interactive);
-  color: var(--color-basic-text);
-  border-radius: 36px;
-}
-//   .navigation-item.dark-theme {
-//     color: #ffffff;
-//   }
 
-//   .logo-shop.dark-theme {
-//     fill: #ffffff;
-//   }
+  .active {
+    padding: 8px 16px;
+    font-weight: 700;
+    background-color: var(--color-interactive);
+    color: var(--color-basic-text);
+    border-radius: 36px;
+  }
+
+  //   .navigation-item.dark-theme {
+  //     color: #ffffff;
+  //   }
+
+  //   .logo-shop.dark-theme {
+  //     fill: #ffffff;
+  //   }
 
   .navigation-item:hover {
     color: var(--color-brand);
   }
 
-    .current {
-      border-radius: 36px;
-      background-color: var(--color-interactive);
-      color: var(--color-basic-text);
-      font-weight: 700;
-    }
+  .current {
+    border-radius: 36px;
+    background-color: var(--color-interactive);
+    color: var(--color-basic-text);
+    font-weight: 700;
+  }
 
-//   .current.dark-theme {
-//     color: var(--color-basic-text);
-//   }
+  //   .current.dark-theme {
+  //     color: var(--color-basic-text);
+  //   }
 
   .mobile-menu-open-btn {
     display: none;
@@ -412,17 +419,19 @@ body.mobile-menu-open {
     color: #ffffff;
     background-color: var(--color-brand);
     cursor: url(../images/cursor.svg),
-        default;
+      default;
     transition: transform 250ms var(--cubic-bezier);
   }
 
-  
+
   .sign-up-icon {
     margin-left: 90px;
   }
+
   .authorizated-pc {
-      display: none;
+    display: none;
   }
+
   .authorizated-btn {
     position: relative;
     display: flex;
@@ -435,8 +444,9 @@ body.mobile-menu-open {
     background-color: var(--color-brand);
     transition: box-shadow 250ms var(--cubic-bezier);
     cursor: url(../images/cursor.svg),
-        default;
+      default;
   }
+
   .authorizated-btn:hover,
   .authorizated-btn:focus {
     box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
@@ -445,7 +455,8 @@ body.mobile-menu-open {
   .log-out-btn {
     position: absolute;
     width: 185px;
-    height: 48px;;
+    height: 48px;
+    ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -460,7 +471,7 @@ body.mobile-menu-open {
     color: var(--color-basic-text);
     background-color: #ffffff;
     cursor: url(../images/cursor.svg),
-        default;
+      default;
   }
 
 
@@ -500,10 +511,11 @@ body.mobile-menu-open {
     color: #ffffff;
     background-color: var(--color-brand);
     cursor: url(../images/cursor.svg),
-        default;
+      default;
   }
-  
+
 }
+
 // dark theme
 
 .dark-theme .header {
@@ -520,25 +532,31 @@ body.mobile-menu-open {
   fill: #F3F3F3;
 
 }
+
 .dark-theme .navigation-link {
   color: #ffffff;
 }
+
 .dark-theme .logo-shop {
-  fill: #ffffff; 
+  fill: #ffffff;
 }
+
 .dark-them .icon-burger-menu {
   fill: #ffffff;
 }
+
 .dark-theme .icon-close {
   fill: #ffffff;
 }
+
 .dark-theme .navigation-link {
   background-color: var(--color-dark-theme);
 }
+
 .dark-theme .active {
   padding: 8px 16px;
-    font-weight: 700;
-    background-color: var(--color-interactive);
-    color: var(--color-basic-text);
-    border-radius: 36px;
+  font-weight: 700;
+  background-color: var(--color-interactive);
+  color: var(--color-basic-text);
+  border-radius: 36px;
 }

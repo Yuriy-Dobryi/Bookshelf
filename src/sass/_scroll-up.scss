@@ -1,35 +1,35 @@
 #scrollUpBtn {
-    box-sizing: border-box;
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    width: 64px;
-    height: 64px;
-    background-position: -10px -10px;
-    border-color: rgba(79, 46, 232, 0.3);
-    border-width: 5px;
-    border-radius: 50%;
-    cursor: pointer;
+  box-sizing: border-box;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  width: 64px;
+  height: 64px;
+  background-position: -10px -10px;
+  border-color: rgba(79, 46, 232, 0.3);
+  border-width: 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .icon-scroll-up {
-    box-sizing: border-box;
-    background-color: var(--color-brand);
-    border-radius: 50%;
-    border: none;
-    fill: #ffffff;
-    padding: 15px;
-    width: 54px;
-    height: 54px;
+  box-sizing: border-box;
+  background-color: var(--color-brand);
+  border-radius: 50%;
+  border: none;
+  fill: #ffffff;
+  padding: 15px;
+  width: 54px;
+  height: 54px;
 }
 
 #scrollUpBtn .icon-scroll-up {
-    transition: transform 0.2s var(--cubic-bezier);
+  transition: transform 0.2s var(--cubic-bezier);
 }
 
 #scrollUpBtn:hover .icon-scroll-up {
-    transform: scale(1.2);
-    transition: transform 0.2s var(--cubic-bezier);
+  transform: scale(1.2);
+  transition: transform 0.2s var(--cubic-bezier);
 }
