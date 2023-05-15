@@ -11,11 +11,11 @@ import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 export const shoppingListRef = document.querySelector('.shopping-list-books');
 
 function setPagination(bookList) {
-  const totalPages = bookList.length / 3;
+  const totalPages = Math.ceil(bookList.length / 3);
   let btnsMarkup = '';
   
   for (let index = 1; index <= totalPages; index += 1) {
-    btnsMarkup += `<button class="page-button">${index}</button>`;
+    btnsMarkup += `<button class="page-btn">${index}</button>`;
   }
   shoppingListRef.insertAdjacentHTML('afterend', btnsMarkup);
 }
