@@ -1,6 +1,6 @@
 import sprite from '../../images/sprite.svg';
-import books from '../../images/book-logo/empty-logo.png';
-import books from '../../images/book-logo/empty-logo.png';
+import alternativeBooks from '../../images/book-logo/empty-logo.png';
+import alternativeBooks_2x from '../../images/book-logo/empty-logo.png';
 import amazonImage from '../../images/card/amazon.png';
 import amazonImage_2x from '../../images/card/amazon@2x.png';
 import appleImage from '../../images/card/apple.png';
@@ -8,20 +8,21 @@ import appleImage_2x from '../../images/card/apple@2x.png';
 import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 
-const shoppingListRef = document.querySelector('.shopping-list-books');
-const emptyShoppingWrapper = document.querySelector('.empty-shopping-wrapper');
+export const shoppingListRef = document.querySelector('.shopping-list-books');
 
-export function renderShoppingList() {
-  const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
-  if (bookList) {
-    renderShoppingCardList(bookList);
-  } else {
-    renderEmptyShoppingList();
+function setPagination(bookList) {
+  const totalPages = bookList.length / 3;
+  let btnsMarkup = '';
+  
+  for (let index = 1; index <= totalPages; index += 1) {
+    btnsMarkup += `<button class="page-button">${index}</button>`;
   }
+  shoppingListRef.insertAdjacentHTML('afterend', btnsMarkup);
 }
 
-function renderShoppingCardList(bookList) {
-  shoppingListRef.innerHTML = bookList
+
+function renderBookList(bookList) {
+  return bookList
     .map(
       ({
         _id,
@@ -31,7 +32,6 @@ function renderShoppingCardList(bookList) {
         book_image_width,
         book_image_height,
         list_name,
-        age_group,
         description,
         author,
       }) => `
@@ -77,42 +77,15 @@ function renderShoppingCardList(bookList) {
 }
 
 function renderEmptyShoppingList() {
-  emptyShoppingWrapper.innerHTML = `
+  shoppingListRef.classList.add('empty');
+
+  return `
   <p class="empty-shopping-text">This page is empty, add some books and proceed to order.</p>
-  <img class="empty-shopping-books-img" src="${books}" alt="Alternative Books, when shopping list is empty">
+  <img class="empty-shopping-books-img" src="${alternativeBooks}" srcset="${alternativeBooks_2x} 2x" alt="Alternative Books, when shopping list is empty">
   `;
 }
 
-function checkViewPortForSupportDisplay() {
-  const supportRef = document.querySelector('.support');
-  const viewportWidth = window.innerWidth;
-
-  if (viewportWidth < 1440) {
-    supportRef.classList.add('is-hide');
-  }
+export function renderShoppingList(bookList) {
+  setPagination(bookList);
+  shoppingListRef.innerHTML = bookList ? renderBookList(bookList) : renderEmptyShoppingList();;
 }
-
-function removeBookInLocalStorage(bookList, bookId) {
-  const updateBookList = bookList.filter(book => book._id !== bookId);
-
-  if (updateBookList.length === 0) {
-    localStorage.removeItem('SHOPPING-BOOKS-LIST');
-  } else {
-    localStorage.setItem('SHOPPING-BOOKS-LIST', JSON.stringify(updateBookList));
-  }
-}
-
-checkViewPortForSupportDisplay();
-renderShoppingList();
-
-shoppingListRef.addEventListener('click', ({ target }) => {
-  const bookCard = target.closest('.btn-card_close');
-  if (bookCard) {
-    const bookId = bookCard.dataset.bookId;
-    const bookList = JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
-
-    removeBookInLocalStorage(bookList, bookId);
-    shoppingListRef.innerHTML = '';
-    renderShoppingList();
-  }
-});
