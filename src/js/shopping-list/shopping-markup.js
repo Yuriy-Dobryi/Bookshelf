@@ -9,19 +9,24 @@ import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 
 export const shoppingListRef = document.querySelector('.shopping-list-books');
+export const paginationRef = document.querySelector('.pagination-wrapper');
 
-function setPagination(bookList) {
+function getPageMarkup(bookList, currentPage) {
   const totalPages = Math.ceil(bookList.length / 3);
   let btnsMarkup = '';
-  
+
   for (let index = 1; index <= totalPages; index += 1) {
     btnsMarkup += `<button class="page-btn">${index}</button>`;
   }
-  shoppingListRef.insertAdjacentHTML('afterend', btnsMarkup);
+  paginationRef.innerHTML = btnsMarkup;
+
+  const startIndex = (currentPage - 1) * 3;
+  const endIndex = startIndex + 3;
+
+  return booksMarkup(bookList.slice(startIndex, endIndex));
 }
 
-
-function renderBookList(bookList) {
+function booksMarkup(bookList) {
   return bookList
     .map(
       ({
@@ -71,12 +76,13 @@ function renderBookList(bookList) {
                 <use href="${sprite}#icon-trash"></use>
             </svg>
             </button>
-      </li>`
+      </li>
+      `
     )
     .join('');
 }
 
-function renderEmptyShoppingList() {
+function emptyShoppingListMarkup() {
   shoppingListRef.classList.add('empty');
 
   return `
@@ -85,7 +91,8 @@ function renderEmptyShoppingList() {
   `;
 }
 
-export function renderShoppingList(bookList) {
-  setPagination(bookList);
-  shoppingListRef.innerHTML = bookList ? renderBookList(bookList) : renderEmptyShoppingList();;
+export function renderShoppingList(bookList, currentPage) {
+  shoppingListRef.innerHTML = bookList
+    ? getPageMarkup(bookList, currentPage)
+    : emptyShoppingListMarkup();
 }

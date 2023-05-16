@@ -1,6 +1,8 @@
-import { shoppingListRef, renderShoppingList } from './shopping-markup';
+import {
+  shoppingListRef,
+  paginationRef, renderShoppingList,
+} from './shopping-markup';
 
-const removeBtn = document.querySelectorAll('.btn-card_close');
 function getBookListFromStorage() {
   return JSON.parse(localStorage.getItem('SHOPPING-BOOKS-LIST'));
 }
@@ -26,23 +28,21 @@ function removeBookInLocalStorage(bookId) {
 }
 
 checkViewPortForSupportDisplay();
-renderShoppingList(getBookListFromStorage());
+renderShoppingList(getBookListFromStorage(), 1);
 
 shoppingListRef.addEventListener('click', ({ target }) => {
-    const bookCard = target.closest('.btn-card_close');
-    if (bookCard) {
-      const bookId = bookCard.dataset.bookId;
+  const bookCard = target.closest('.btn-card_close');
+  if (bookCard) {
+    const bookId = bookCard.dataset.bookId;
 
-      removeBookInLocalStorage(bookId);
-      renderShoppingList(getBookListFromStorage());
-    }
+    removeBookInLocalStorage(bookId);
+    renderShoppingList(getBookListFromStorage(), 1);
+  }
 });
 
-window.addEventListener('click', ({ target }) => {
+paginationRef.addEventListener('click', ({ target }) => {
   const pageBtn = target.closest('.page-btn');
   if (pageBtn) {
-    console.log(pageBtn.textContent);
-
-    
+    renderShoppingList(getBookListFromStorage(), pageBtn.textContent);
   }
 });
