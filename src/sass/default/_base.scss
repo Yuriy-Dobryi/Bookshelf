@@ -2,11 +2,11 @@ body {
   font-family: 'DM Sans';
   background-color: var(--color-light-theme);
   color: var(--color-basic-text);
-  cursor: url(../images/cursor-light.svg), default;
+  cursor: url(../images/cursor-light-theme.svg), default;
 }
 body.dark-theme {
   background-color: var(--color-dark-theme);
-  cursor: url(../images/cursor-dark.svg), default;
+  cursor: url(../images/cursor-dark-theme.svg), default;
 }
 
 p,
@@ -35,7 +35,7 @@ img {
 }
 
 a {
-  color: currentColor;
+  color: inherit;
   text-decoration: none;
 }
 
