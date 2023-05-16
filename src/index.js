@@ -4,4 +4,3 @@ import './js/home/render-categories-list.js';
 import './js/home/render-books-list.js';
 import './js/home/modal-card';
 import './js/home/scroll-up.js';
-// import './js/home/loader.js';

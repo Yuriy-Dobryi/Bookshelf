@@ -1,5 +1,9 @@
+.shopping-section {
+  padding: 40px 0;
+}
+
 @media screen and (min-width: 1440px) {
-  .main-container {
+  .shopping-container {
     display: flex;
   }
 
@@ -8,9 +12,36 @@
   }
 }
 
-// WTF???????????????????
-.main-container {
-  min-height: 1500px;
+.shopping-list-title {
+  width: 193px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.19;
+  letter-spacing: -0.04em;
+}
+.dark-theme .shop {
+  color: #fff;
+}
+.list {
+  color: #4F2EE8;
+}
+
+
+@media screen and (min-width: 768px) {
+  .shopping-list-title {
+    width: 292px;
+
+    font-size: 48px;
+    line-height: 1.08;
+  }
+}
+
+.main-shopping {
+  background-color: var(--color-light-theme);
+}
+.dark-theme .main-shopping {
+  background-color: var(--color-dark-theme);
 }
 
 .page-btn {
@@ -18,9 +49,14 @@
   height: 38px;
   margin-right: 8px;
 
-  background-color: var(--color-basic-text);
-  color: var(--color-white);
-  border: none;
+  background-color: var(--color-light-theme);
+  color: var(--color-basic-text);
+  border: 1px solid var(--color-basic-text);
   border-radius: 20px;
   cursor: pointer;
+}
+
+.page-btn.active-page{
+  background-color: var(--color-basic-text);
+  color: var(--color-white);
 }

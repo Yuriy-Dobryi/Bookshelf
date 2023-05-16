@@ -1,18 +1,12 @@
 body {
-  margin: 0 auto;
   font-family: 'DM Sans';
-  font-weight: 400;
-  font-size: 16px;
+  background-color: var(--color-light-theme);
   color: var(--color-basic-text);
-  cursor: url(../images/cursor.svg), default;
+  cursor: url(../images/cursor-light.svg), default;
 }
-
-header {
-  background-color: var(--color-light-theme);
-}
-
-main {
-  background-color: var(--color-light-theme);
+body.dark-theme {
+  background-color: var(--color-dark-theme);
+  cursor: url(../images/cursor-dark.svg), default;
 }
 
 p,

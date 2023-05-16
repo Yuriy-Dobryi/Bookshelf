@@ -8,25 +8,28 @@ import appleImage_2x from '../../images/card/apple@2x.png';
 import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 
-export const shoppingListRef = document.querySelector('.shopping-list-books');
-export const paginationRef = document.querySelector('.pagination-wrapper');
+export const booksListRef = document.querySelector('.shopping-books-list');
+export const paginationRef = document.querySelector('.pagination');
+const TOTAL_BOOKS_PER_PAGE = 3;
 
-function getPageMarkup(bookList, currentPage) {
-  const totalPages = Math.ceil(bookList.length / 3);
-  let btnsMarkup = '';
-
-  for (let index = 1; index <= totalPages; index += 1) {
-    btnsMarkup += `<button class="page-btn">${index}</button>`;
-  }
-  paginationRef.innerHTML = btnsMarkup;
-
-  const startIndex = (currentPage - 1) * 3;
-  const endIndex = startIndex + 3;
-
-  return booksMarkup(bookList.slice(startIndex, endIndex));
+function getBooksPageMarkup(bookList, currentPage = 1) {
+  const startIndex = (currentPage - 1) * TOTAL_BOOKS_PER_PAGE;
+  const endIndex = startIndex + TOTAL_BOOKS_PER_PAGE;
+  
+  return getBooksMarkup(bookList.slice(startIndex, endIndex));
 }
 
-function booksMarkup(bookList) {
+function getBtnsMarkup(bookList) {
+  const totalPages = Math.ceil(bookList.length / TOTAL_BOOKS_PER_PAGE);
+  let btnsMarkup = '';
+
+  for (let page = 1; page <= totalPages; page += 1) {
+    btnsMarkup += `<button class="page-btn">${page}</button>`;
+  }
+  return btnsMarkup;
+}
+
+function getBooksMarkup(bookList) {
   return bookList
     .map(
       ({
@@ -82,8 +85,8 @@ function booksMarkup(bookList) {
     .join('');
 }
 
-function emptyShoppingListMarkup() {
-  shoppingListRef.classList.add('empty');
+function getEmptyShoppingListMarkup() {
+  booksListRef.classList.add('empty');
 
   return `
   <p class="empty-shopping-text">This page is empty, add some books and proceed to order.</p>
@@ -91,8 +94,15 @@ function emptyShoppingListMarkup() {
   `;
 }
 
-export function renderShoppingList(bookList, currentPage) {
-  shoppingListRef.innerHTML = bookList
-    ? getPageMarkup(bookList, currentPage)
-    : emptyShoppingListMarkup();
+export function renderShoppingList(bookList) {
+  if (bookList) {
+    booksListRef.innerHTML = getBooksPageMarkup(bookList);
+    paginationRef.innerHTML = getBtnsMarkup(bookList);
+  } else {
+    getEmptyShoppingListMarkup();
+  }
+}
+
+export function renderSelectedBooksPage(bookList, currentPage) {
+  booksListRef.innerHTML = getBooksPageMarkup(bookList, currentPage);
 }
