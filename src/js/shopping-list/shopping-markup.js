@@ -103,6 +103,9 @@ export function renderShoppingListSection(bookList) {
   if (bookList) {
     booksListRef.innerHTML = getBooksPageMarkup(bookList);
     paginationRef.innerHTML = getBtnsMarkup(bookList);
+
+    const firstPageBtn = document.querySelector('.page-btn');
+    firstPageBtn.classList.add('active-page');
   } else {
     getEmptyShoppingListMarkup();
   }
