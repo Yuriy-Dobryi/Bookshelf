@@ -22,7 +22,7 @@ input[type="checkbox"]:checked+.slider::before {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
+  background: linear-gradient(180deg, var(--color-brand) 0%, #686868 100%);
 }
 
 .slider::after {

@@ -7,8 +7,7 @@
   padding: 24px 40px 68px;
 
   background: radial-gradient(183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%);
+  var(--color-brand) 18.03%, var(--color-white) 100%);
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
 }
@@ -16,16 +15,15 @@
 .support-title {
   display: flex;
 
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  // color: #ffffff;
-
-  background: linear-gradient(-225deg, #76daff 0%, #fcd000 100%);
+  background: linear-gradient(-225deg, #fbff16 0%, #4854ff 100%);
   background-size: 200% auto;
   background-clip: text;
   color: transparent;
   animation: textclip 3s linear infinite;
+
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
 
 @keyframes textclip {
@@ -57,10 +55,8 @@
 
 .foundation-counter {
   margin-right: 16px;
-
+  color: var(--color-white);
   font-size: 14px;
-
-  color: #ffffff;
 }
 
 .foundation-icon {
@@ -84,11 +80,15 @@
 
   border: 1px solid transparent;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--color-white);
   cursor: pointer;
-  fill: #4f2ee8;
+  fill: var(--color-brand);
   transform: rotate(180deg);
-  transition: transform 250ms var(--cubic-bezier);
+  transition: transform 250ms var(--cubic-bezier), scale 250ms var(--cubic-bezier);
+
+  &:hover {
+    scale: 1.2;
+  }
 }
 
 .foundations-more.up {
@@ -98,8 +98,6 @@
 .support.is-hide {
   display: none;
 }
-
-@media screen and (min-width: 375px) {}
 
 @media screen and (min-width: 768px) {
   .support {

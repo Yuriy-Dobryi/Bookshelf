@@ -4,13 +4,13 @@
   padding: 14px;
   width: 335px;
   height: 170px;
-  background: #ffffff;
+  background: var(--color-white);
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 }
 
 .dark-theme .galleryitem {
-  background-color: #111111;
+  background-color: var(--color-basic-text);
   color: var(--color-light-theme);
 }
 
@@ -45,7 +45,7 @@
   font-size: 12px;
   line-height: 1, 17;
   letter-spacing: 0.03em;
-  color: #b4afaf;
+  color: var(--color-italic-text);
 }
 
 .btn-svg-close {
@@ -80,7 +80,7 @@
   font-size: 12px;
   line-height: 1.125;
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: var(--color-italic-text);
 }
 
 .div_svg-card {
@@ -98,7 +98,7 @@
   height: 28px;
   right: 14px;
   top: 14px;
-  background: #4f2ee8;
+  background: var(--color-brand);
 }
 
 .list-shops {

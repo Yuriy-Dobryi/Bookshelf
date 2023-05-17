@@ -1,22 +1,10 @@
-// Стилі для основних блоків
-
-.dark-theme main {
-  background-color: var(--color-dark-theme);
-}
-
-.main-container {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
+// Стилі для основних home-блоків
 .categories-and-support__wrapper {
   display: block;
 }
-
 .categories-list {
   margin-bottom: 40px;
 }
-
 .book-list {
   display: block;
   position: relative;
@@ -28,22 +16,22 @@
     column-gap: 32px;
     margin-bottom: 100px;
   }
-
   .categories-list {
     margin-bottom: 0;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .home-container {
+    display: flex;
+  }
   .categories-and-support__wrapper {
     flex-direction: column;
     column-gap: 32px;
   }
-
   .categories-list {
     margin-bottom: 86px;
   }
-
   .books-list {
     margin-left: 40px;
   }

@@ -12,8 +12,23 @@
 <body>
   <include src="./partials/menu-header.html"></include>
 
-  <main class="main-shopping">
-    <include src="./partials/shopping-list-main.html"></include>
+  <main>
+    <section class="shopping-section">
+      <div class="shopping-container container">
+    
+        <include src="./partials/support.html"></include>
+    
+        <div class="shopping-books-wrapper">
+          <h1 class="shopping-list-title">
+            <span class="shopping-word">Shopping</span>
+            <span class="list-word">List</span>
+          </h1>
+          <ul class="shopping-books-list"></ul>
+          <div class="pagination"></div>
+        </div>
+    
+      </div>
+    </section>
   </main>
 
   <script type="module" src="./shopping-list.js"></script>

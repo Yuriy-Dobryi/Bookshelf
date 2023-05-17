@@ -44,7 +44,7 @@ export const renderBooksList = async () => {
 
     const categorySection = `
     <section class="category-section">
-      <h3 class="books-list-title-fo-all-categori">${category.list_name}</h3>
+      <h3 class="all-categories-title">${category.list_name}</h3>
       <div class="books-container">
         ${books}
       </div>
@@ -80,9 +80,8 @@ renderBooksList();
 
 export const renderBooksListCategory = async category => {
   loader.classList.remove('visually-hidden');
-  const booksListCategory = await fetchApiCategories.getCategoriesSelected(
-    category
-  );
+  const booksListCategory = await fetchApiCategories
+    .getSelectedCategories(category);
   loader.classList.add('visually-hidden');
 
   booksList.innerHTML = '';
