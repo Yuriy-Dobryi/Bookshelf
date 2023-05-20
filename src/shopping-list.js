@@ -1,7 +1,7 @@
 import {
   booksListRef,
   paginationRef,
-  renderShoppingListSection,
+  renderShopListSection,
   renderSelectedBooksPage,
 } from './js/shopping-list/shopping-markup';
 
@@ -30,15 +30,15 @@ function removeBookInLocalStorage(bookId) {
 }
 
 checkViewPortForSupportDisplay();
-renderShoppingListSection(getBookListFromStorage());
+renderShopListSection(getBookListFromStorage());
 
 booksListRef.addEventListener('click', ({ target }) => {
-  const bookCard = target.closest('.btn-card_close');
+  const bookCard = target.closest('.btn-card_remove');
   if (bookCard) {
     const bookId = bookCard.dataset.bookId;
 
     removeBookInLocalStorage(bookId);
-    renderShoppingListSection(getBookListFromStorage());
+    renderShopListSection(getBookListFromStorage());
   }
 });
 

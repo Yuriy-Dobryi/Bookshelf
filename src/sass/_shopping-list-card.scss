@@ -1,20 +1,21 @@
-.galleryitem {
+.gallery-item {
   position: relative;
   display: flex;
-  padding: 14px;
   width: 335px;
   height: 170px;
+  padding: 14px;
+
   background: var(--color-white);
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
 }
 
-.dark-theme .galleryitem {
+.dark-theme .gallery-item {
   background-color: var(--color-basic-text);
   color: var(--color-light-theme);
 }
 
-.galleryimage {
+.gallery-image {
   display: block;
   width: 100px;
   height: 142px;
@@ -48,14 +49,13 @@
   color: var(--color-italic-text);
 }
 
-.btn-svg-close {
+.btn-svg-remove {
   width: 16px;
   height: 16px;
   fill: var(--color-brand);
 }
 
-
-.btn-card_close {
+.btn-card_remove {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,7 +92,7 @@
   gap: 8px;
 }
 
-.btn-card_close {
+.btn-card_remove {
   position: absolute;
   width: 28px;
   height: 28px;
@@ -103,13 +103,13 @@
 
 .list-shops {
   position: absolute;
+  right: 14px;
+  bottom: 14px;
+  
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: 0px;
-  gap: 8px;
-  right: 14px;
-  bottom: 14px;
+  column-gap: 8px;
 }
 
 .img-amazon {
@@ -138,40 +138,36 @@
 }
 
 @media screen and (min-width: 768px) {
-  .galleryitem {
-    padding: 24px;
+  .gallery-item {
     width: 704px;
     height: 213px;
-    margin-bottom: 20px;
+    padding: 24px;
   }
 
-  .galleryimage {
+  .gallery-image {
     width: 116px;
     height: 165px;
     border-radius: 8px;
   }
 
-  .btn-card_close {
+  .btn-card_remove {
     width: 34px;
     height: 34px;
     right: 24px;
     top: 24px;
   }
 
-  .btn-svg-close {
+  .btn-svg-remove {
     width: 18px;
     height: 18px;
   }
 
 
   .list-shops {
-
-    gap: 16px;
-    align-items: center;
     right: 24px;
     bottom: 24px;
-    // width: 80px;
-    // height: 16px;
+    align-items: center;
+    column-gap: 16px;
   }
 
   .img-amazon {
@@ -191,7 +187,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .galleryitem {
+  .gallery-item {
     width: 996px;
     height: 213px;
   }

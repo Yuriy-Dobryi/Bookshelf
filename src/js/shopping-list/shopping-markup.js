@@ -8,7 +8,7 @@ import appleImage_2x from '../../images/card/apple@2x.png';
 import bookshopImage from '../../images/card/bookShop.png';
 import bookshopImage_2x from '../../images/card/bookShop@2x.png';
 
-export const booksListRef = document.querySelector('.shopping-books-list');
+export const booksListRef = document.querySelector('.shop-books-list');
 export const paginationRef = document.querySelector('.pagination');
 const TOTAL_BOOKS_PER_PAGE = 3;
 
@@ -43,8 +43,8 @@ function getBooksMarkup(bookList) {
         description,
         author,
       }) => `
-      <li class="galleryitem">
-        <img class="galleryimage"
+      <li class="gallery-item">
+        <img class="gallery-image"
           src="${book_image}"
           width="${book_image_width}"
           height="${book_image_height}"
@@ -80,8 +80,8 @@ function getBooksMarkup(bookList) {
             </a>
           </div>
           
-          <button class="btn-card_close" data-book-id="${_id}">
-            <svg class="btn-svg-close">
+          <button class="btn-card_remove" data-book-id="${_id}">
+            <svg class="btn-svg-remove">
               <use href="${sprite}#icon-trash"></use>
             </svg>
           </button>
@@ -90,16 +90,14 @@ function getBooksMarkup(bookList) {
     .join('');
 }
 
-function getEmptyShoppingListMarkup() {
-  booksListRef.classList.add('empty');
-
+function getEmptyShopListMarkup() {
   return `
-  <p class="empty-shopping-text">This page is empty, add some books and proceed to order.</p>
-  <img class="empty-shopping-books-img" src="${alternativeBooks}" srcset="${alternativeBooks_2x} 2x" alt="Alternative Books, when shopping list is empty">
+  <p class="empty-shop-text">This page is empty, add some books and proceed to order.</p>
+  <img class="empty-shop-img" src="${alternativeBooks}" srcset="${alternativeBooks_2x} 2x" alt="Alternative Books, when shopping list is empty">
   `;
 }
 
-export function renderShoppingListSection(bookList) {
+export function renderShopListSection(bookList) {
   if (bookList) {
     booksListRef.innerHTML = getBooksPageMarkup(bookList);
     paginationRef.innerHTML = getBtnsMarkup(bookList);
@@ -107,7 +105,11 @@ export function renderShoppingListSection(bookList) {
     const firstPageBtn = document.querySelector('.page-btn');
     firstPageBtn.classList.add('active-page');
   } else {
-    getEmptyShoppingListMarkup();
+    const shopBooksWrapper = document.querySelector('.shopping-books-wrapper');
+    shopBooksWrapper.classList.add('empty');
+
+    booksListRef.innerHTML = getEmptyShopListMarkup();
+    paginationRef.innerHTML = '';
   }
 }
 
