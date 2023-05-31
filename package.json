@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Yuriy-Dobryi.github.io/unbreakable",
+  "homepage": "https://Yuriy-Dobryi.github.io/Bookshelf",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /unbreakable/"
+    "build": "parcel build src/*.html --public-url /Bookshelf/"
   },
   "repository": {
     "type": "git",
